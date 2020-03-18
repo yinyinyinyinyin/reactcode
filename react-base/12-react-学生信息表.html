@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<!--引入react的解析包 -->
+		 <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+		 <!--引入react解析到 dom节点的包-->		 <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+		 <!--babel :解析es6语法  jsx语法-->		 <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+		 <style>
+			 .mytable{border-collapse: collapse; width:600px;}
+			 .mytable tr th, .mytable tr td{
+				 border:1px solid blue;
+			 }
+		 </style>
+	</head>
+	<body>
+		<div id="app"></div>
+		<script type="text/babel">
+			//数组
+			var user = [
+				{"id":1,"name":"张飞","age":36,"tel":"15812341234"},
+				{"id":2,"name":"张飞1","age":36,"tel":"15812341234"},
+				{"id":3,"name":"张飞2","age":36,"tel":"15812341234"},
+				{"id":4,"name":"张飞3","age":36,"tel":"15812341234"},
+				{"id":5,"name":"张飞4","age":36,"tel":"15812341234"},
+			];
+			
+			
+			//创建子组件
+			//class在 jsx语法中必须写成 className
+			var MyElement = React.createClass({
+				render(){
+					return (
+						<div>
+							<h2>学生信息表</h2>
+							<table className="mytable">
+								<tr><th>学号</th><th>姓名</th><th>年龄</th><th>联系方式</th></tr>
+								{
+									this.props.user.map((item)=>{
+										return (
+											<tr><td>{item.id}</td><td>{item.name}</td>
+											<td>{item.age}</td><td>{item.tel}</td></tr>
+										)
+									})
+								}
+							</table>
+						</div>
+					)
+				}
+			}) 
+			
+			ReactDOM.render(
+			<MyElement user = {user}></MyElement>,
+				document.getElementById('app')
+			);
+		</script>
+	</body>
+</html>
