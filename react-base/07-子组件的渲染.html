@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<!--引入react的解析包 -->
+		 <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+		 <!--引入react解析到 dom节点的包-->		 <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+		 <!--babel :解析es6语法  jsx语法-->		 <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+	</head>
+	<body>
+		<div id="app"></div>
+		<script type="text/babel">
+			//相当于vue中的slot
+			//创建子组件
+			//如果组件里面的界限想要显示，需要使用Children
+			var MyElement = React.createClass({
+				render:function(){
+					console.log(this.props.children);
+					console.log(React.Children);
+					return (
+						<div>子组件
+						{
+							//React.Children.map 循环，数据源是 undefined或者 object或者array都可以正常显示而不报错
+							React.Children.map(this.props.children,function(item){
+								return <div>{item}</div>
+							})
+						}
+						
+						</div>
+					)
+				}
+			})
+			ReactDOM.render(
+			<MyElement >
+				<div>红花</div>
+				<div>绿叶</div>
+			</MyElement>,
+				document.getElementById('app')
+			);
+		</script>
+	</body>
+</html>
