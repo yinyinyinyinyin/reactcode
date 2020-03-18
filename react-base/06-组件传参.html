@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<!--引入react的解析包 -->
+		 <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+		 <!--引入react解析到 dom节点的包-->		 <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+		 <!--babel :解析es6语法  jsx语法-->		 <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+	</head>
+	<body>
+		<div id="app"></div>
+		<script type="text/babel">
+			var meinv="大乔和小乔";
+			//创建组件
+			var Hello = React.createClass({
+				render:function(){
+					return (  //return 和小括号必须在同一行
+						<h2>helloworld 
+						{this.props.name}打黄盖,
+						{this.props.name} 喜欢 {this.props.love}
+						
+						</h2>
+					)
+				}
+			})
+			//渲染
+			ReactDOM.render(
+				<Hello name="周瑜" love={meinv}/>,
+				document.getElementById('app')
+			);
+		</script>
+	</body>
+</html>

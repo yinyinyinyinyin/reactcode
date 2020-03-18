@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<!--引入react的解析包 -->
+		 <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+		 <!--引入react解析到 dom节点的包-->		 <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+		 <!--babel :解析es6语法  jsx语法-->		 <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+	</head>
+	<body>
+		<div id="app"></div>
+		<script type="text/babel">
+			//写一个组件
+			//注意：组件的名称首字母一定要大写
+			/*
+			标签和组件的区别：
+			1.创建标签和创建组件不一样，标签直接写；组件： React.createClass来创建
+			2.名字不一样，组件名必须首字母大写
+			3.使用不一样，组件使用时，需要在组件名的外面加一层<组件名称/>
+			*/
+			var MyElement = React.createClass({
+				render:function(){
+					return (
+						<h2>我是一个组件</h2>
+					)
+				}
+			});
+			//渲染
+			ReactDOM.render(<MyElement/>,document.getElementById('app'));
+		</script>
+	</body>
+</html>
+

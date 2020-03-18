@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<!--引入react的解析包 -->
+		 <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+		 <!--引入react解析到 dom节点的包-->		 <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+		 <!--babel :解析es6语法  jsx语法-->		 <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+	</head>
+	<body>
+		<div id="app"></div>
+		<script type="text/babel">
+			//ReactDOM.render 该函数可以将dom节点渲染到页面上
+			////第一个参数 将要渲染的节点
+			//第二个参数 找到根节点
+			//注意：react只有一个根节点
+			/*
+			jsx语法：1.可以写表达式，所有的表达式或变量使用{}括起来
+			2.不可以使用 if else语句 ，可以使用三目运算符
+			3.jsx语法中推荐使用 内联样式
+			*/
+		   //4.模板中注释的写法：{/*注释...*/}
+		   //5.模板中可以添加数组，并且自动展开数组成员
+		    var mystyle = {"color":"yellow","font-size":"30px"}; 
+			var myArr = [<h2>海燕说：</h2>,<h3>让暴风雨来的更猛烈些吧！</h3>];
+			ReactDOM.render(
+			/*我是一个注释*/
+				<div>
+				{/*我是一个注释2*/}
+					hello world!
+					<div>{1+1}</div>
+					<div style= {mystyle}>{1+1 ==2 ?'true':'false'}</div>
+					{myArr}
+				</div>,
+				document.getElementById('app')
+			);
+		</script>
+	</body>
+</html>
