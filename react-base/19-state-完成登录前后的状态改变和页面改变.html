@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<!--引入react的解析包 -->
+		 <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+		 <!--引入react解析到 dom节点的包-->
+		 <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+		 <!--babel :解析es6语法  jsx语法-->
+		 <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+	</head>
+	<body>
+		<div id="app"></div>
+		<script type="text/babel">
+			//创建组件
+			class LoginControl extends React.Component{
+				constructor() {
+				    super();//继承父级节点的this指向
+					this.state = {
+						isLogged:true  //false没登录  true  登录了 
+					}
+				}
+				//更改 登录状态
+				changeLog=()=>{
+					this.setState({
+						isLogged:!this.state.isLogged
+					})
+				}
+				render(){
+					const isLogged = this.state.isLogged;
+					let button = '';
+					if(isLogged){
+						button = <button onClick={this.changeLog}>退出</button>
+					}else{
+						button = <button onClick={this.changeLog}>登录</button>
+					}
+					return (
+						<div>
+							{isLogged?<h1>欢迎 **来到本网站</h1>:<h1>请点击登录按钮进行登录操作</h1>}
+							{button}
+							
+						</div>
+					)
+				}
+			}
+			
+			//渲染
+			ReactDOM.render(<LoginControl />,document.getElementById('app'));
+		</script>
+	</body>
+</html>

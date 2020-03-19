@@ -14,31 +14,36 @@
 		<div id="app"></div>
 		
 		<script type="text/babel">
+			/*
+			注意：以下这种创建组件的方式，函数间是没有逗号的
+			自定义的函数需要写成 箭头函数的形式才能保留this的指向
+			
+			*/
 			//创建组件	
-			var NumButton = React.createClass({
-				//对state设置初始状态值
-				getInitialState(){
-					return {
+			class NumButton extends React.Component{
+				//设置state的初始值
+				constructor() {
+				    super();
+					this.state = {
 						myNum:0,
-						myNum2:0,
-						}
-				},
+						myNum2:0
+					}
+				}
 				//状态改变的函数
-				changeNum(){
-					console.log(this);
+				changeNum=()=>{
 					console.log('函数被触发了');
+					console.log(this);
 					this.setState({
 						myNum:this.state.myNum+1
 					})
-				},
-				//需要接受参数
-				changeNumN(n,ev){
+				}
+				changeNumN=(n,ev)=>{
 					console.log(n);
 					console.log(ev);
 					this.setState({
 						myNum2:this.state.myNum2+n
 					})
-				},
+				}
 				render(){
 					return (<div>
 						<div><button onClick={this.changeNum}>点击按钮更改数字,每次自加1</button>
@@ -52,12 +57,8 @@
 						</div>
 					</div>)
 				}
-			})
-			/*
-			事件传参：
-			onClick={(ev)=>this.changeNumN(5,ev)}
-			onClick={this.changeNumN.bind(this,8)}
-			*/
+			}
+			
 			//渲染
 			ReactDOM.render(<NumButton />,document.getElementById('app'));
 		</script>
