@@ -58,17 +58,22 @@
 				}
 				
 				//组件要不要更新
-				/*
-				shouldComponentUpdate react为了做优化处理专门暴露出来的接口，
-				如果return 的是true 会触发 componentWillUpdate render componentDidUpdate
-				如果return 的是false  componentWillUpdate render componentDidUpdate都不会被触发，并且页面也不会更新
-				*/
 				shouldComponentUpdate(oldValue,newValue){
 					console.log("旧：",oldValue);
 					console.log("新：",newValue);
 					console.log('shouldComponentUpdate 钩子函数触发了');
-					return true;
+					if(newValue.num >=10){
+						return false;
+					}else{
+						return true;
+					}
+					
 				} 
+				//组件卸载前的钩子函数
+				componentWillUnmount(){
+					console.log('组件卸载前的钩子函数触发了');
+					
+				}
 				
 				//更改子组件显示的状态
 				changeVisible=()=>{

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<!--引入react的解析包 -->
+		 <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+		 <!--引入react解析到 dom节点的包-->
+		 <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+		 <!--babel :解析es6语法  jsx语法-->
+		 <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+		 <style>
+			body{
+				background-image: url(img/1.png);color:red;
+			} 
+		 </style>
+	</head>
+	<body>
+		<div id="app"></div>
+		<script type="text/babel">
+			//创建子组件
+			class Parent extends React.Component{
+				//透明度的初始值
+				constructor(arg) {
+					super();
+					this.state = {
+						opacity:1//不透明
+					}
+				}
+				
+				//异步操作需要写在componentDidMount这个钩子函数中
+				componentDidMount(){
+					console.log(this);//Parent
+					// setInterval(()=>{//因为使用了 setInterval所以需要 箭头函数更改this的指向
+					// 	console.log(this);//window
+					// 	let myOpacity = this.state.opacity;
+					// 	myOpacity -= 0.05;
+					// 	if(myOpacity <= 0){
+					// 		myOpacity = 1;
+					// 	}
+					// 	//改变state
+					// 	this.setState({
+					// 		opacity:myOpacity
+					// 	})
+					// },100);
+					
+					//使用 bind改变了this的指向
+					// setInterval(function(){//
+					// 	console.log(this);//window
+					// 	let myOpacity = this.state.opacity;
+					// 	myOpacity -= 0.05;
+					// 	if(myOpacity <= 0){
+					// 		myOpacity = 1;
+					// 	}
+					// 	//改变state
+					// 	this.setState({
+					// 		opacity:myOpacity
+					// 	})
+					// }.bind(this),100);
+					
+					//可以保存this为下划线this
+					var _this = this;
+					setInterval(function(){//
+						console.log(_this);//window
+						let myOpacity = _this.state.opacity;
+						myOpacity -= 0.05;
+						if(myOpacity <= 0){
+							myOpacity = 1;
+						}
+						//改变state
+						_this.setState({
+							opacity:myOpacity
+						})
+					},100);
+				}
+				render(){
+					const opacity = this.state.opacity;
+					return (
+					<div><h1 style={{"opacity":opacity}}>helloworld</h1></div>
+					)
+				}
+			}
+			
+			//渲染
+			ReactDOM.render(<Parent />, document.getElementById('app'))
+			
+		</script>
+	</body>
+</html>
