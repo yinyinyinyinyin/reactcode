@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<!--引入react的解析包 -->
+		<script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+		<!--引入react解析到 dom节点的包-->
+		<script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+		<!--babel :解析es6语法  jsx语法-->
+		<script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+		<script src="js/axios.min.js"></script>
+	</head>
+	<body>
+		<div id="app"></div>
+		<script type="text/babel">
+			
+			//创建父组件
+			class Parent extends React.Component{
+				constructor(){
+					super();
+					this.state = {
+						result:[]
+					}
+				}
+				componentDidMount(){
+					//获取数据
+					axios.get("./list.json").then((res)=>{
+						console.log(res);
+						this.setState({
+							result:res.data.product
+						})
+					})
+				}
+				//如果数据在页面卸载前还没有加载完成，需要终止
+				componentWillUnmount(){
+					//this.re.abort();//jquery  
+				}
+				
+				render(){
+					const result = this.state.result;
+					console.log(result);
+					return (
+						<div>我是组件
+							<ul>
+								{
+									result.map((item)=>{
+										return <li>{item.name}</li>
+									})
+								}
+							</ul>
+						</div>
+					)
+				}
+				
+				
+			}	
+			//渲染
+			ReactDOM.render(<Parent />,document.getElementById('app'));
+				
+		</script>
+	</body>
+</html>

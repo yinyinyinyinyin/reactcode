@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<!--引入react的解析包 -->
+		 <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+		 <!--引入react解析到 dom节点的包-->
+		 <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+		 <!--babel :解析es6语法  jsx语法-->
+		 <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+		 <style type="text/css">
+		 	.child{background: lightcoral; width: 80%; height: 300px;}
+		 </style>
+	</head>
+	<body>
+		<div id="app"></div>
+		<script type="text/babel">
+			//react中的子传父：当子组件需要传参数给父组件时，必须调用父组件的函数
+			//父组件的函数作为参数在调用子组件时传递
+			//创建子组件
+			class Child extends React.Component{
+				render(){
+					return (
+						<div className="child">我是子组件，我在红色的海洋里 
+						<button onClick={()=>{this.props.cancel(false)}}>子组件的按钮，点击更改父组件的状态值</button>
+						</div>
+					)
+				}
+			}
+			
+			//创建父组件
+			class Parent extends React.Component{
+				//设置子组件显示的初始状态值
+				constructor() {
+				    super();
+					this.state = {
+						visible:false
+					};
+				}
+				render(){
+					return (
+						<div>我是父组件，调用子组件的内容
+						{
+							this.state.visible?<Child cancel={mode=>this.cancel(mode)}/>:<button onClick={this.changeVisible}>点击显示子组件</button>
+						}
+						
+						</div>
+					)
+				}
+				changeVisible=()=>{
+					this.setState({
+						visible:true
+					})
+				}
+				//该函数被子组件调用
+				cancel=(mode)=>{
+					this.setState({
+						visible:mode
+					})
+				}
+				
+			}	
+			
+			//渲染
+			ReactDOM.render(<Parent />,document.getElementById('app'));
+				
+		</script>
+	</body>
+</html>
