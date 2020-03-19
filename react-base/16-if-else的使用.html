@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>状态机的操作</title>
+		<!--引入react的解析包 -->
+		 <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+		 <!--引入react解析到 dom节点的包-->
+		 <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+		 <!--babel :解析es6语法  jsx语法-->
+		 <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+	</head>
+	<body>
+		<div id="app"></div>
+		
+		<script type="text/babel">
+			//创建组件
+			/*
+			state:
+			1.初始值：getInitialState
+			2.使用：this.state.***
+			3.设置：setState
+			*/
+			/*
+			react里面的事件调用函数的写法：onClick={this.changeLikeType}
+			*/
+			
+			var LikeButton = React.createClass({
+				//对state设置初始状态值
+				getInitialState(){
+					return {like:true}
+				},
+				//状态改变的函数
+				changeLikeType(){
+					console.log('函数被触发了');
+					//react 是单项数据流，下面这句直接赋值的语句，不会引发页面的自动更新
+					//this.state.like = !this.state.like;
+					//console.log(this.state.like);
+					//setState 函数里面封装了给 state里面的变量赋值，触发了render重新渲染页面
+					this.setState({
+						like:!this.state.like
+					})
+				},
+				render(){
+					var type = '';
+					if(this.state.like){
+						type = <div>    我喜欢你</div>;
+					}else{
+						type = <div>我不喜欢你</div>;
+					}
+					
+					return (<div><button onClick={this.changeLikeType}>点击改变值</button>{type}</div>)
+					
+				}
+			})
+			
+			//渲染
+			ReactDOM.render(<LikeButton />,document.getElementById('app'));
+		</script>
+		
+	</body>
+</html>
