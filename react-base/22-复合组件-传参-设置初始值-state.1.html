@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<!--引入react的解析包 -->
+		 <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+		 <!--引入react解析到 dom节点的包-->		 <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+		 <!--babel :解析es6语法  jsx语法-->		 <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+	</head>
+	<body>
+		<div id="app"></div>
+		<script type="text/babel">
+			//创建子组件
+			/*
+			props 和 state的区别：
+			1.props主要用于组件间传参
+			2.state 主要用于 数据的更改
+			注意：如果数据不更改，初始值的设定可以使用 getInitialState 或者 getDefaultProps都可以
+			*/
+			
+			
+			var MyElement = React.createClass({
+				//对 props设置初始值
+				getInitialState(){
+					return {
+						name:'紫色小屋',
+						url:'www.yinruifang.cn'
+					}
+				},
+				render(){
+					return (
+						<div>
+							<h2>站点信息如下：</h2>
+							<div>站点名称是：<SiteName myname={this.state.name} /></div>
+							<div>站点url是：<SiteUrl url={this.state.url}/></div>
+						</div>
+					)
+				}
+			})
+			//创建孙子组件
+			var SiteName = React.createClass({
+				render(){
+					return (
+					<span>{this.props.myname}</span>
+					)
+				}
+			})
+			var SiteUrl = React.createClass({
+				render(){
+					return (
+					<span>{this.props.url}</span>
+					)
+				}
+			})
+			ReactDOM.render(
+			<MyElement ></MyElement>,
+				document.getElementById('app')
+			);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<!--引入react的解析包 -->
+		 <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+		 <!--引入react解析到 dom节点的包-->		 <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+		 <!--babel :解析es6语法  jsx语法-->		 <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+	</head>
+	<body>
+		<div id="app"></div>
+		<script type="text/babel">
+			//创建子组件
+			var MyElement = React.createClass({
+				//对 props设置初始值
+				getDefaultProps(){
+					return {
+						name:'紫色小屋',
+						url:'www.yinruifang.cn'
+					}
+				},
+				render(){
+					return (
+						<div>
+							<h2>站点信息如下：</h2>
+							<div>站点名称是：<SiteName myname={this.props.name} /></div>
+							<div>站点url是：<SiteUrl url={this.props.url}/></div>
+						</div>
+					)
+				}
+			})
+			//创建孙子组件
+			var SiteName = React.createClass({
+				render(){
+					return (
+					<span>{this.props.myname}</span>
+					)
+				}
+			})
+			var SiteUrl = React.createClass({
+				render(){
+					return (
+					<span>{this.props.url}</span>
+					)
+				}
+			})
+			ReactDOM.render(
+			<MyElement ></MyElement>,
+				document.getElementById('app')
+			);
+		</script>
+	</body>
+</html>

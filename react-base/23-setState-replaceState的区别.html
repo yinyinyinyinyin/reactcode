@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<!--引入react的解析包 -->
+		 <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+		 <!--引入react解析到 dom节点的包-->
+		 <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+		 <!--babel :解析es6语法  jsx语法-->
+		 <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+	</head>
+	<body>
+		<div id="app"></div>
+		<script type="text/babel">
+			//创建组件
+			/*
+			注意：react的根节点必须只有一个
+			jsx语法单标签必须有斜杠结束
+			*/
+		   var ColorBtn = React.createClass({
+			   getInitialState(){
+				   return {
+					   isRed:true,
+					   num:0
+				   }
+			   },
+			   //改变颜色
+			   changeColor(){	
+			   	this.setState({
+			   		isRed:!this.state.isRed
+			   	},function(state){
+					console.log(this.state);
+					
+				})
+			   },
+			   //自动加一
+			   changeNum(){
+				   //但是方法只会保留nextState中状态，原state不在nextState中的状态都会被删除
+			   	this.replaceState({
+			   		num:this.state.num+1
+			   	},function(state){
+					console.log(this.state);
+					
+				})
+			   },
+			   render(){
+			   	return (
+			   	<div>
+			   		<button onClick={this.changeColor}
+			   		style={this.state.isRed?{'background':'red'}:{'background':'green'}}
+			   		>点击改变颜色</button><br/>
+			   		<button onClick={this.changeNum}>点击自动加一{this.state.num}</button>
+			   	</div>
+			   	)
+			   }
+			   
+		   })
+			
+			
+			
+			//渲染
+			ReactDOM.render(<ColorBtn />,document.getElementById('app'));
+		</script>
+	</body>
+</html>

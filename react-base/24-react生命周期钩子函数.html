@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<!--引入react的解析包 -->
+		 <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+		 <!--引入react解析到 dom节点的包-->
+		 <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+		 <!--babel :解析es6语法  jsx语法-->
+		 <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+		 <style>
+			 .child{width: 80%; height: 200px; background: yellow;}
+		 </style>
+	</head>
+	<body>
+		<div id="app"></div>
+		<script type="text/babel">
+			//创建子组件
+			class Child extends React.Component{
+				render(){
+					return (
+						<div className="child">我是子组件</div>
+					)
+				}
+			}
+			
+			//创建父组件
+			class Parent extends React.Component{
+				constructor(){
+					super();
+					this.state={
+						visible:false
+					}
+				}
+				//挂载前和挂在后的钩子函数是执行一次的
+				componentWillMount(){
+					console.log("挂载前的钩子函数运行了");
+				}
+				componentDidMount(){
+					console.log("挂载后的钩子函数运行了");
+				}
+				//更新前和更新后可以执行多次
+				componentWillUpdate(){
+					console.log("更新前的钩子函数运行了");
+				}
+				componentDidUpdate(){
+					console.log("更新后的钩子函数运行了");
+				}
+				//更改子组件显示的状态
+				changeVisible=()=>{
+					this.setState({
+						visible:true
+					})
+				}
+				
+				render(){
+					console.log('render 钩子运行了');
+					return (
+					<div>我是父组件，我调用了子组件
+					{
+						this.state.visible?<Child />:<button onClick={this.changeVisible}>点击显示子组件</button>
+					}
+					</div>
+					)
+				}
+			}
+			
+			//渲染
+			ReactDOM.render(<Parent />, document.getElementById('app'))
+			
+		</script>
+	</body>
+</html>
