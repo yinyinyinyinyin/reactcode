@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		
+		 <!--解析react语法的-->
+		 <script src="https://unpkg.com/react@16.10.2/umd/react.development.js"></script>
+		 <!--解析react dom操作-->
+		 <script src="https://unpkg.com/react-dom@16.10.2/umd/react-dom.development.js"></script>
+		 <!--babel :解析es6语法  jsx语法-->		 <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+	</head>
+	<body>
+		<div id="app"></div>
+		<script type="text/babel">
+			//refs可以确定某一个真实的dom节点，通过refs可以找到该节点，对该节点进行操作
+			/*
+			refs适用情况：
+			1.处理焦点，文本选择，媒体控制
+			2.触发强制动画
+			3.继承第三方dom库
+			4.如果可以通过声明实现的，尽量避免使用refs
+			*/
+		   //非受控组件对input框没有绑定 state，需要使用ref才能获取对应的input框中输入的数据
+			//创建表单组件
+			class MyForm extends React.Component{
+				constructor() {
+				    super();
+					//创建 ref对象  必须react的版本在16.***以上的
+					this.input = React.createRef();
+				}
+				//提交表单
+				mySubmit=(ev)=>{
+					console.log(this);
+					console.log(this.input.current.value);
+					console.log("表单已经提交，提交的用户名是："+this.input.current.value);
+					ev.preventDefault();
+				}
+				
+				render(){
+					return (
+					<div>
+						<h2>我的表单</h2>
+						<form onSubmit={this.mySubmit}>
+							用户名：<input type="text"  ref={this.input} name="username"/>
+							<button type="submit" >提交</button>
+							
+						</form>
+						
+					</div>
+					)
+				}
+			}
+			//渲染
+			ReactDOM.render(
+				<MyForm />,
+				document.getElementById('app')
+			);
+		</script>
+	</body>
+</html>

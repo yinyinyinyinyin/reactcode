@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		 <!--解析react语法的-->
+		 <script src="https://unpkg.com/react@16.10.2/umd/react.development.js"></script>
+		 <!--解析react dom操作-->
+		 <script src="https://unpkg.com/react-dom@16.10.2/umd/react-dom.development.js"></script>
+		 <!--babel :解析es6语法  jsx语法-->		 <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+		 <style type="text/css">
+		 	.dark{background: darkblue; color:yellow;}
+			.light{background:lightblue;color:deeppink;}
+		 </style>
+	</head>
+	<body>
+		<div id="app"></div>
+		<script type="text/babel">
+			//context,为了避免props的逐级传递
+			function ThemeButton(props){
+				return <button className={props.theme}>我是一个按钮</button>
+			}
+			//input 框中如果想要设置默认值，需要使用 defaultValue 
+			function ThemeInput(props){
+				return <input className={props.theme} defaultValue="我是一个文本框"/>
+			}
+			function ToolBar(props){
+				return (
+					<div>
+						有一组工具
+						按钮：<ThemeButton theme={props.theme} /><br/>
+						输入框：<ThemeInput theme = {props.theme} />
+					</div>
+				)
+			}
+			//渲染
+			ReactDOM.render(
+				<ToolBar theme="light" />,
+				document.getElementById('app')
+			);
+		</script>
+	</body>
+</html>

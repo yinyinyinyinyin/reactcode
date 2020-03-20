@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		 <!--解析react语法的-->
+		 <script src="https://unpkg.com/react@16.10.2/umd/react.development.js"></script>
+		 <!--解析react dom操作-->
+		 <script src="https://unpkg.com/react-dom@16.10.2/umd/react-dom.development.js"></script>
+		 <!--babel :解析es6语法  jsx语法-->		 <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+	</head>
+	<body>
+		<div id="app"></div>
+		<script type="text/babel">
+			//React.Fragment  意思，如果组件返回多个标签时，因为需要根节点为一个，所以必须引入Fragment
+			//Fragment 可以包裹一组标签，但是自己不会解析成任何标签
+			//创建表单组件
+			class MyTable extends React.Component{
+				
+				render(){
+					return (
+					<div>
+						<h2>我的表格渲染</h2>
+						<table>
+							<tbody>
+								<tr>
+									<MyColumn />
+								</tr>
+								<tr>
+									<td>1</td><td>花花</td><td>女</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					)
+				}
+			}
+			
+			class MyColumn extends React.Component{
+				render(){
+					return (
+					<React.Fragment>
+						<th>学号</th><th>姓名</th><th>性别</th>
+					</React.Fragment>
+					)
+				}
+			}
+			
+			//渲染
+			ReactDOM.render(
+				<MyTable />,
+				document.getElementById('app')
+			);
+		</script>
+	</body>
+</html>
