@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<!--引入react的解析包 -->
+		 <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+		 <!--引入react解析到 dom节点的包-->		 <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+		 <!--babel :解析es6语法  jsx语法-->		 <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+	</head>
+	<body>
+		<div id="app"></div>
+		<script type="text/babel">
+			//新需求：用户名只允许输入大写字母
+			//创建表单组件
+			class MyForm extends React.Component{
+				constructor() {
+				    super();
+					this.state={
+						username:""//用户名的初始值
+					}
+				}
+				changeValue=(ev)=>{
+					console.log(ev.target.value);
+					this.setState({
+						username:ev.target.value.toUpperCase()
+					})
+				}
+				formSubmit=(ev)=>{
+					console.log('表单已经提交了，提交的用户名是：'+this.state.username);
+					ev.preventDefault();//阻止默认事件
+				}
+				render(){
+					return (
+					<div>
+						<h2>我的表单</h2>
+						<form onSubmit={this.formSubmit}>
+							Name:<input type="text" value={this.state.username} 
+							onChange={this.changeValue} name="username"/>
+							将要提交的用户名是：{this.state.username}
+							
+							<input type="submit" value="提交" />
+						</form>
+					</div>
+					)
+				}
+			}
+			//渲染
+			ReactDOM.render(
+				<MyForm />,
+				document.getElementById('app')
+			);
+		</script>
+	</body>
+</html>

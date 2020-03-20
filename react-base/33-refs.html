@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<!--引入react的解析包 -->
+		 <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+		 <!--引入react解析到 dom节点的包-->		 <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+		 <!--babel :解析es6语法  jsx语法-->		 <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+	</head>
+	<body>
+		<div id="app"></div>
+		<script type="text/babel">
+			//refs可以确定某一个真实的dom节点，通过refs可以找到该节点，对该节点进行操作
+			/*
+			refs适用情况：
+			1.处理焦点，文本选择，媒体控制
+			2.触发强制动画
+			3.继承第三方dom库
+			4.如果可以通过声明实现的，尽量避免使用refs
+			*/
+			//创建表单组件
+			class MyForm extends React.Component{
+				//定位光标
+				changeFocus=()=>{
+					//找到这个dom节点
+					console.log(this);
+					//给第三个input框定位了光标
+					this.refs.t3.focus();
+					this.refs.t3.style.background = 'green';
+				}
+				render(){
+					return (
+					<div>
+						<h2>我的表单</h2>
+						<input type="text" value="1111" ref="t1"/>
+						<input type="text" value="22222" ref="t2" />
+						<input type="text" value="33333"  ref="t3"/>
+						<button onClick={this.changeFocus}>点击按钮定位光标</button>
+					</div>
+					)
+				}
+			}
+			//渲染
+			ReactDOM.render(
+				<MyForm />,
+				document.getElementById('app')
+			);
+		</script>
+	</body>
+</html>
