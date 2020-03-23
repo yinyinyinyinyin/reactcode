@@ -46,12 +46,16 @@ search  Link 写  to={{pathname:'/路径名',search:'?key=value'}}
 
 
 */
+/*
+Link to属性有两种方式:一种是 字符串作为路径,还有一种是使用对象最为路径
+replace={true}:对于有 该属性的路由,它的前一个路由,并没有保存到历史记录里,而是直接被替换掉
+*/
 const App = ()=>(
 	<BrowserRouter>
 		<div>
 			<Link to="/">首页</Link> &nbsp;
 			<Link to="/about/1001">关于我们</Link> &nbsp;
-			<Link to="/render">render页面</Link> &nbsp;
+			<Link to="/render" replace={true}>render页面</Link> &nbsp;
 			<Link to="/user/68">有参数的user页面</Link> &nbsp;
 			<Link to={{pathname:'/search',search:'?name=react'}}>使用search传参</Link> &nbsp;
 			<Link to={{pathname:'/state',state:{"username":"山海经"}}}>使用state传参</Link> &nbsp;
