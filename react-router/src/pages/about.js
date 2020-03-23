@@ -5,10 +5,10 @@ import React from 'react';
 class About extends React.Component{
 	render(){
 		console.log(this);
-		const {history} = this.props;
+		const {history,match} = this.props;
 		return <div>关于我们
 		<button onClick={()=>{history.push('/')}}>返回首页</button>
-		
+		传递的页面值是:{match.params.pageid}
 		</div>
 	}
 }

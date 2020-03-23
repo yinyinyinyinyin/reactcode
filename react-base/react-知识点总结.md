@@ -91,7 +91,29 @@
 	--V17.0之后的版本删除的钩子函数	componentWillMount ，componentWillReceiveProps ，componentWillUpdate	在 v16.3以上版本新增的钩子函数	getDerivedStateFromProps：组件初始（重新渲染）加载时，获取当前的props与state的值（在此钩子函数中不能使用this），再此比较返回最新值对象（这个返回简单点说就相当于setState），
 	注意添加 条件不满足时 return null；
 	
-	getSnapshotBeforeUpdate：会在最终的 render 之前被调用，也就是说在 getSnapshotBeforeUpdate 中读取到的 DOM 元素状态是可以保证与 componentDidUpdate 中一致的	https://blog.csdn.net/smile_ycm/article/details/87714287
+	getSnapshotBeforeUpdate：会在最终的 render 之前被调用，也就是说在 getSnapshotBeforeUpdate 中读取到的 DOM 元素状态是可以保证与 componentDidUpdate 中一致的	https://blog.csdn.net/smile_ycm/article/details/87714287
+	
+## 	表单的双向绑定
+	-- value={this.state.value}  onChange={this.changeType}	-- changeType=(ev)=>{
+		this.setState({
+			value:ev.target.value
+		})
+	}
+	
+## 什么是受控组件、什么是非受控组件
+	受控组件，意思表单中输入的数据不能直接显示在 input框中，必须将value值绑定给 state，再使用
+	onChange事件更改state的值的情况
+	非受控组件，不受state控制，键盘输入的内容可以直接接受到，非受控组件一般获取数据需要使用 refs的
+	方式
+	对于非受控组件设置初始值的时候需要使用defaultValue
+	
+## fragment 解决组件返回多个元素的情况
+
+## context  可以避免props逐级传递
+	
+## 	
+	
+	
 	
 	
 	
