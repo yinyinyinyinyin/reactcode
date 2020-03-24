@@ -1,13 +1,13 @@
 //路由
 //引入插件
 import React from 'react';
-import {BrowserRouter,Route,Switch,Link} from 'react-router-dom';
+import {BrowserRouter,Route,Switch} from 'react-router-dom';
 //引入页面
 import Main from '../pages/main';
 import Global from '../pages/global';
 import Good from '../pages/good';
 import Mask from '../pages/mask';
-
+import Page404 from '../pages/page404';
 //引入 头部组件
 import Header from '../components/common/header';
  //写路由表
@@ -18,10 +18,13 @@ import Header from '../components/common/header';
 				<Header />
 			</div>
 			<div className="qcs-content">
-				<Route path="/"  exact={true} component={Main} />
-				<Route path="/mask" component={Mask} />
-				<Route path="/good" component={Good} />
-				<Route path="/global" component={Global} />
+				<Switch>
+					<Route path="/"  exact={true} component={Main} />
+					<Route path="/mask" component={Mask} />
+					<Route path="/good" component={Good} />
+					<Route path="/global" component={Global} />
+					<Route  component={Page404} />
+				</Switch>
 			</div>
 		</div>
 	</BrowserRouter>

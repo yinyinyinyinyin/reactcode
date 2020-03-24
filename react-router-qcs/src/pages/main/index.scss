@@ -1,0 +1,23 @@
+.main-con{
+	.main-img{
+		img{width: 100%;}
+	}
+	.bimai-con{
+		
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-around;
+		background-color: rgb(255, 231, 227);
+		padding-left:2%;
+		padding-right:2%;
+		li{
+			width: 32%; 
+			margin-bottom:3px;
+			//border:1px solid red;
+			background:#fff;
+			img{
+				width:100%;
+			}
+		}
+	}
+}
