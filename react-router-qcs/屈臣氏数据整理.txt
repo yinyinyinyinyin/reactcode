@@ -1,0 +1,18 @@
+https://h5.watsons.com.cn/aladdin/get_batch_data?codes=[%22sylunbo%22,%22pingou_B%22,%22Home_AboveTopic_activity_170505_7%22,%22Home_TopicCase_170505_7%22,%22Home_CategaryNavs_170505_7%22]&version=&app_channel=wap&plat=wap&access_token=&device_id=646b29c0-6d74-11ea-9bcd-c53527f03e1c
+
+首页底部面膜热卖及其他的六个小图标：Home_CategaryNavs_170505_7
+首页底部倒数第二个循环：焕颜新装  ：Home_TopicCase_170505_7
+
+
+
+https://h5.watsons.com.cn/aladdin/get_batch_data?codes=[%22%E4%B8%B4%E6%97%B6%22,%22chajian%22,%22newhome_10icon_one_img2%22,%22newhome_10icon_one_img1%22,%22new_Home_4navs_180105_1%22,%22Home_seckill%22]&version=&app_channel=wap&plat=wap&access_token=&device_id=646b29c0-6d74-11ea-9bcd-c53527f03e1c
+首页轮播图：chajian
+
+
+
+
+https://h5.watsons.com.cn/activity/specials/info?count=8&code=Home_flashSale__Top_Img&stock_code=&device_id=646b29c0-6d74-11ea-9bcd-c53527f03e1c
+秒杀数据
+
+https://h5.watsons.com.cn/item/ws/group_list?current_page=1&page_size=9&group_id=28797&device_id=646b29c0-6d74-11ea-9bcd-c53527f03e1c
+必买爆款数据
