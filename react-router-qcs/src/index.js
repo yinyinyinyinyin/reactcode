@@ -2,6 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './router';
+//重置浏览器的默认样式
+import "reset-css";
+//rem
+import "react-flexible";
+//引入蚂蚁金服
+import "antd/dist/antd.min.css";
+
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(

@@ -1,0 +1,33 @@
+.qcs-header{
+	position: fixed;
+	top:0;
+	left:0;
+	right:0;
+	height:100px;
+	background: #fff;
+	.qcs-h-search{
+		height:50px;
+		line-height: 50px;
+		text-align:center;
+		border-bottom:1px solid #ccc;
+		.header-font{font-size:20px;}
+		.header-input{border-radius: 20px;}
+	}
+	.qcs-h-nav{
+		height:50px; 
+		line-height:50px;
+		ul{
+			display: flex;
+			justify-content: space-around;
+			flex-wrap: nowrap;
+			li{
+				a{color:#000; font-size:16px;display: inline-block; height:45px;}
+				a.active{
+					fontsize:16px;
+					color:#ff6692;
+					border-bottom:3px solid #ff6692;
+				}
+			}
+		}
+	}
+}
