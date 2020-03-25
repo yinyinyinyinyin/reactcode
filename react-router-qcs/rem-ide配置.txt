@@ -1,0 +1,25 @@
+1.webstorm
+File - setting - plugins
+
+搜索  px2rem 插件 ，安装
+
+
+配置：
+File-Other Settings - PX2REM
+
+PX转REM的过程：
+将光标定位到想rem的那一行
+按shift+d
+
+ctrl+shift+d
+shift+d
+
+2.vscode
+https://www.jianshu.com/p/fbfbc60c4faf
+
+
+3.hbuilder
+工具-设置-编辑器配置-启用px转rem   
+填写比例 为 37.5
+
+

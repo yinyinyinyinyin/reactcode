@@ -20,6 +20,8 @@ class Main extends Component{
 			],
 			lunboList:[],//轮播
 			miaoshaList:[],//秒杀列表
+			nowTime:0,//现在的时间戳
+			endTime:0//结束的事件戳
 		}
 	}
 	componentDidMount(){
@@ -45,7 +47,9 @@ class Main extends Component{
 		.then(res=>{
 			console.log(res);
 			this.setState({
-				miaoshaList:res.data.data.specials_item_v_o_s
+				miaoshaList:res.data.data.specials_item_v_o_s,
+				nowTime:res.data.data.now,
+				endTime:res.data.data.specials_time_ranges[0].end
 			})
 		})
 	}
@@ -74,14 +78,15 @@ class Main extends Component{
 		})
 	}
 	render(){
-		const {bimaiList,bimaiNav,lunboList,miaoshaList} = this.state;
+		const {bimaiList,bimaiNav,lunboList,miaoshaList,nowTime,endTime} = this.state;
 		return (
 			<div className="main-con">
 				<div className="main-img"><img alt="gonglue" src="https://image.watsons.com.cn//upload/d05b93ca.png"/></div>
 				<div className="main-img"><img alt="美妆嘉年华" src="https://image.watsons.com.cn//upload/61fbcc3d.gif"/></div>
-				<JinRiMiaoSha miaoshaList={miaoshaList} />
-				
-				
+				{
+					nowTime !==0 && endTime!==0?
+					<JinRiMiaoSha miaoshaList={miaoshaList} nowTime={nowTime} endTime={endTime}/>:""	
+				}
 				<div className="main-img"><img alt="必买爆款" src="https://image.watsons.com.cn//upload/998a3a0c.jpg"/></div>
 				<ul className="bimai-nav">
 				{

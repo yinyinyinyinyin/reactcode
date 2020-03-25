@@ -3,9 +3,25 @@
 	background: url(https://image.watsons.com.cn//upload/b875a675.png);
 	height:5.493333rem;
 	background-size: cover;
+	
 	.miaosha{
 		height:1.333333rem;
 		line-height: 1.333333rem;
+		font-size:16px;
+		font-weight: bold;
+		padding-left:0.533333rem;
+		.djs{
+			padding-left:0.533333rem;
+			display: inline-block;
+			margin-bottom:0.186666rem;
+			span{
+				font-size:12px;
+				background: #000;
+				color:#fff;
+				padding:0.053333rem;
+			}
+		}
+		.more{padding-left:2.4rem;}
 	}
 	.miaosha1{
 		width:9.173333rem;
@@ -46,7 +62,9 @@
 			}
 		}
 	}
+	/*chrome浏览器下去除横向滚动条*/
 	.miaosha1::-webkit-scrollbar{
 		display:none;
 	}
 }
+//样式需要将 px转rem
