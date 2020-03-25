@@ -1,0 +1,52 @@
+.jinri-con{
+	width: 100%;
+	background: url(https://image.watsons.com.cn//upload/b875a675.png);
+	height:5.493333rem;
+	background-size: cover;
+	.miaosha{
+		height:1.333333rem;
+		line-height: 1.333333rem;
+	}
+	.miaosha1{
+		width:9.173333rem;
+		height:3.733333rem;
+		margin:0.266666rem 0.4rem;
+		
+		display:flex;
+		overflow-x: scroll;
+		border-radius: 5px;
+		.neir{
+			margin-left:0.133333rem;
+			margin-right:0.133333rem;
+			width: 2.533333rem;
+			bordeR:1px solid #ededed;
+			background: #fff;
+			border-radius: 5px;
+			position: relative;
+			img{
+				height:2.48rem;
+				width:2.48rem;
+				border-radius: 5px;
+			}
+			.name{
+				border-top:1px solid #ededed;
+				padding:5px;
+				overflow: hidden;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+			}
+			.biqiang{
+				position: absolute;
+				    top: 2rem;
+				    left: 0px;
+				    background: orangered;
+				    color: #fff;
+				    padding: 3px;
+				    border-radius: 2px;
+			}
+		}
+	}
+	.miaosha1::-webkit-scrollbar{
+		display:none;
+	}
+}

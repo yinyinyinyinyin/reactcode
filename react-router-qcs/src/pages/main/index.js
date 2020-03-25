@@ -5,7 +5,7 @@ import axios from 'axios';
 //引入必买部分组件
 import Bimai from '../../components/main/bimai.js';
 import MainSwiper from '../../components/main/mainswiper.js';
-
+import JinRiMiaoSha from '../../components/main/jinrimiaosha.js';
 import './index.scss';
 class Main extends Component{
 	constructor() {
@@ -18,13 +18,16 @@ class Main extends Component{
 				{"id":3,"group_id":28799,"name":"低价精选",activeType:false},
 				{"id":4,"group_id":28800,"name":"当季热卖",activeType:false}
 			],
-			lunboList:[]//轮播
+			lunboList:[],//轮播
+			miaoshaList:[],//秒杀列表
 		}
 	}
 	componentDidMount(){
 		this.getBiMaiData(28797);
-		//获取数据
+		//获取轮播数据
 		this.getLunboData();
+		//获取秒杀数据
+		this.getMiaoShaData();
 	}
 	//轮播数据
 	getLunboData=()=>{
@@ -33,6 +36,16 @@ class Main extends Component{
 			console.log(res);
 			this.setState({
 				lunboList:res.data.data.chajian.datas
+			})
+		})
+	}
+	//秒杀数据
+	getMiaoShaData=()=>{
+		axios.get("activity/specials/info?count=8&code=Home_flashSale__Top_Img&stock_code=&device_id=646b29c0-6d74-11ea-9bcd-c53527f03e1c")
+		.then(res=>{
+			console.log(res);
+			this.setState({
+				miaoshaList:res.data.data.specials_item_v_o_s
 			})
 		})
 	}
@@ -61,11 +74,14 @@ class Main extends Component{
 		})
 	}
 	render(){
-		const {bimaiList,bimaiNav,lunboList} = this.state;
+		const {bimaiList,bimaiNav,lunboList,miaoshaList} = this.state;
 		return (
 			<div className="main-con">
 				<div className="main-img"><img alt="gonglue" src="https://image.watsons.com.cn//upload/d05b93ca.png"/></div>
 				<div className="main-img"><img alt="美妆嘉年华" src="https://image.watsons.com.cn//upload/61fbcc3d.gif"/></div>
+				<JinRiMiaoSha miaoshaList={miaoshaList} />
+				
+				
 				<div className="main-img"><img alt="必买爆款" src="https://image.watsons.com.cn//upload/998a3a0c.jpg"/></div>
 				<ul className="bimai-nav">
 				{
