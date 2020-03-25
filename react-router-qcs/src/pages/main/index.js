@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+import {Link} from 'react-router-dom';
 //引入axios
 import axios from 'axios';
 
@@ -102,6 +103,9 @@ class Main extends Component{
 				<Bimai  bimaiList={bimaiList}/>
 				{/*轮播*/}
 				<MainSwiper lunboList={lunboList}/>
+				<Link to="/list">
+				<img className="hufu" src="https://image.watsons.com.cn//upload/6b197213.jpg" alt="护肤会场"/>
+				</Link>
 			</div>
 		) 
 	}
