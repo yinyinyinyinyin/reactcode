@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+
 import App from './router';
 
 
@@ -12,7 +12,7 @@ import "reset-css";
 
 //rem
 import "react-flexible";
-
+import './index.css';
 
 
 
