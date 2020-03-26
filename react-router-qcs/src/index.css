@@ -8,3 +8,5 @@ output, ruby, section, summary, time, mark, audio, video {
     vertical-align: middle;
 }
 .qcs-content{margin-top:100px;}
+a{color:#000;}
+a:hover,a:active{color:#000;}
