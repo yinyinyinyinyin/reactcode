@@ -11,7 +11,7 @@ class List extends Component{
 		}
 	}
 	componentDidMount(){
-		axios.get("https://h5.watsons.com.cn/item/ws/group_list?current_page=1&page_size=24&group_id=28516&device_id=d667b580-6e63-11ea-bc08-f9000f2957ab").then(res=>{
+		axios.get("item/ws/group_list?current_page=1&page_size=24&group_id=28516&device_id=d667b580-6e63-11ea-bc08-f9000f2957ab").then(res=>{
 			let listArr = res.data.data.item_list;
 			//将数据保存到 state
 			this.setState({
