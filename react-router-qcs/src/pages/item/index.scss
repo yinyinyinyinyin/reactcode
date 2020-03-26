@@ -1,6 +1,5 @@
-.list-con{
-	margin-top:-50px;
-	
+.item-con{
+	margin-top: -50px;
 	h3{
 		height:50px;
 		line-height: 50px;
@@ -14,15 +13,7 @@
 		background-color: #fff;
 		.list-title{padding-left:35%;}
 		
+		
 	}
-	ul{
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: space-around;
-		li{
-			width: 45%;
-			img{width:100%}
-		} 
-	}
-	.end{font-size: 16px; color:orangered;text-align: center;}
+	img{width:100%;}
 }

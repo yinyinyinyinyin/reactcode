@@ -32,6 +32,14 @@ class Main extends Component{
 		//获取秒杀数据
 		this.getMiaoShaData();
 	}
+	//组件卸载时,将没有停止的setState全部停止
+	componentWillUnmount = () => {
+	    this.setState = (state,callback)=>{
+	      return;
+	    };
+	}
+	 
+	
 	//轮播数据
 	getLunboData=()=>{
 		axios.get("aladdin/get_batch_data?codes=[%22%E4%B8%B4%E6%97%B6%22,%22chajian%22,%22newhome_10icon_one_img2%22,%22newhome_10icon_one_img1%22,%22new_Home_4navs_180105_1%22,%22Home_seckill%22]&version=&app_channel=wap&plat=wap&access_token=&device_id=646b29c0-6d74-11ea-9bcd-c53527f03e1c")

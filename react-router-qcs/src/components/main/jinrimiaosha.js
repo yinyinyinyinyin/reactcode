@@ -22,6 +22,14 @@ class JinRiMiaoSha extends Component{
 		},1000);
 		
 	}
+	//只要看到:Can't perform a React state update on an unmounted component 就添加下面的代码
+	//将未完成的setState停止掉
+	componentWillUnmount = () => {
+	    this.setState = (state,callback)=>{
+	      return;
+	    };
+	}
+	 
 	//将事件戳转日期时间
 	formatTime=(date)=>{
 		let time = date/1000;

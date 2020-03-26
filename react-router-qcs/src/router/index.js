@@ -9,6 +9,7 @@ import Good from '../pages/good';
 import Mask from '../pages/mask';
 import Page404 from '../pages/page404';
 import List from '../pages/list';
+import Item from '../pages/item';
 //引入 头部组件
 import Header from '../components/common/header';
  //写路由表
@@ -25,6 +26,7 @@ import Header from '../components/common/header';
 					<Route path="/good" component={Good} />
 					<Route path="/global" component={Global} />
 					<Route path="/list" component={List} />
+					<Route path="/item" component={Item} />
 					<Route  component={Page404} />
 				</Switch>
 			</div>

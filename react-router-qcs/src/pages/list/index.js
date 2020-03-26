@@ -72,13 +72,21 @@ class List extends Component{
 		}
 		
 	}
-	
-	
+	//返回首页的函数
+	goHome=()=>{
+		this.props.history.push('/');
+	}
+	//组件卸载时,将没有停止的setState全部停止
+	componentWillUnmount = () => {
+	    this.setState = (state,callback)=>{
+	      return;
+	    };
+	}
 	render(){
 		let {listArr} = this.state; 
 		return (
 		<div className="list-con">
-			<h3>护肤</h3>
+			<h3> <span onClick={this.goHome}>{"<"}</span> <span className="list-title">护肤</span></h3>
 			<ul >
 				{
 					listArr.map((item,index)=>{
@@ -91,6 +99,7 @@ class List extends Component{
 					})
 				}
 			</ul>
+			<div className="end" style={this.state.end?{"display":"block"}:{"display":"none"}}>已经到底了,请不要再拉了!</div>
 		</div>
 		)
 	}
