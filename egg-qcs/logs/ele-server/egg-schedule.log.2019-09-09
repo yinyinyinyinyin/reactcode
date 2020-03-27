@@ -1,0 +1,12 @@
+2019-09-09 11:43:21,283 INFO 8636 [Timer] E:\www\egg-qcs\node_modules\egg-logrotator\app\schedule\clean_log.js next time will execute at 2019-09-10 00:00:00.000
+2019-09-09 11:43:21,284 INFO 8636 [Timer] E:\www\egg-qcs\node_modules\egg-logrotator\app\schedule\rotate_by_file.js next time will execute at 2019-09-10 00:00:01.000
+2019-09-10 09:03:35,590 INFO 8636 [156807741559086547300492859] E:\www\egg-qcs\node_modules\egg-logrotator\app\schedule\clean_log.js triggered, send random by agent
+2019-09-10 09:03:35,598 INFO 8636 [Timer] E:\www\egg-qcs\node_modules\egg-logrotator\app\schedule\clean_log.js next time will execute at 2019-09-11 00:00:00.000
+2019-09-10 09:03:35,598 INFO 8636 [156807741559886547308784555] E:\www\egg-qcs\node_modules\egg-logrotator\app\schedule\rotate_by_file.js triggered, send random by agent
+2019-09-10 09:03:35,605 INFO 8636 [Timer] E:\www\egg-qcs\node_modules\egg-logrotator\app\schedule\rotate_by_file.js next time will execute at 2019-09-11 00:00:01.000
+2019-09-10 09:03:36,326 INFO 8276 [156807741559086547300492859] E:\www\egg-qcs\node_modules\egg-logrotator\app\schedule\clean_log.js task received by app
+2019-09-10 09:03:36,327 INFO 8276 [156807741559086547300492859] E:\www\egg-qcs\node_modules\egg-logrotator\app\schedule\clean_log.js executing by app
+2019-09-10 09:03:36,329 INFO 8276 [156807741559886547308784555] E:\www\egg-qcs\node_modules\egg-logrotator\app\schedule\rotate_by_file.js task received by app
+2019-09-10 09:03:36,329 INFO 8276 [156807741559886547308784555] E:\www\egg-qcs\node_modules\egg-logrotator\app\schedule\rotate_by_file.js executing by app
+2019-09-10 09:03:41,534 INFO 8276 [156807741559086547300492859] E:\www\egg-qcs\node_modules\egg-logrotator\app\schedule\clean_log.js execute succeed, used 5206ms
+2019-09-10 09:03:41,560 INFO 8276 [156807741559886547308784555] E:\www\egg-qcs\node_modules\egg-logrotator\app\schedule\rotate_by_file.js execute succeed, used 5231ms

@@ -1,0 +1,38 @@
+2019-06-20 08:40:27,792 INFO 5220 [egg-logrotator] agent logger reload: got log-reload message
+2019-06-20 14:22:48,671 ERROR 5220 nodejs.ClusterClientNoResponseError: client no response in 1960080ms exceeding maxIdleTime 60000ms, maybe the connection is close on other side.
+    at Timeout.Leader._heartbeatTimer.setInterval [as _onTimeout] (E:\www\egg-qcs\node_modules\cluster-client\lib\leader.js:74:23)
+    at ontimeout (timers.js:498:11)
+    at tryOnTimeout (timers.js:323:5)
+    at Timer.listOnTimeout (timers.js:290:5)
+name: "ClusterClientNoResponseError"
+pid: 5220
+hostname: USER-20180711MK
+
+2019-09-09 11:43:19,071 INFO 8636 [egg:logger] init all loggers with options: {"dir":"E:\\www\\egg-qcs\\logs\\ele-server","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"ele-server-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"agent"}
+2019-09-09 11:43:19,339 INFO 8636 [egg:core] dump config after load, 7ms
+2019-09-09 11:43:19,549 INFO 8636 [egg-watcher] Start watching: ["E:\\www\\egg-qcs\\app","E:\\www\\egg-qcs\\config","E:\\www\\egg-qcs\\mocks","E:\\www\\egg-qcs\\mocks_proxy","E:\\www\\egg-qcs\\app.js"]
+2019-09-09 11:43:19,549 INFO 8636 [egg-watcher] Start watching: "E:\\www\\egg-qcs\\app"
+2019-09-09 11:43:19,551 INFO 8636 [egg-watcher] Start watching: "E:\\www\\egg-qcs\\config"
+2019-09-09 11:43:19,551 INFO 8636 [egg-watcher] Start watching: "E:\\www\\egg-qcs\\mocks"
+2019-09-09 11:43:19,551 INFO 8636 [egg-watcher] Start watching: "E:\\www\\egg-qcs\\mocks_proxy"
+2019-09-09 11:43:19,551 INFO 8636 [egg-watcher] Start watching: "E:\\www\\egg-qcs\\app.js"
+2019-09-09 11:43:19,552 INFO 8636 [egg-watcher:agent] watcher start success
+2019-09-09 11:43:19,589 INFO 8636 [egg:core] dump config after ready, 6ms
+2019-09-09 14:22:33,611 ERROR 8636 nodejs.ClusterClientNoResponseError: client no response in 9052281ms exceeding maxIdleTime 60000ms, maybe the connection is close on other side.
+    at Timeout.Leader._heartbeatTimer.setInterval [as _onTimeout] (E:\www\egg-qcs\node_modules\cluster-client\lib\leader.js:74:23)
+    at ontimeout (timers.js:498:11)
+    at tryOnTimeout (timers.js:323:5)
+    at Timer.listOnTimeout (timers.js:290:5)
+name: "ClusterClientNoResponseError"
+pid: 8636
+hostname: USER-20180711MK
+
+2019-09-10 09:03:36,738 ERROR 8636 nodejs.ClusterClientNoResponseError: client no response in 46940685ms exceeding maxIdleTime 60000ms, maybe the connection is close on other side.
+    at Timeout.Leader._heartbeatTimer.setInterval [as _onTimeout] (E:\www\egg-qcs\node_modules\cluster-client\lib\leader.js:74:23)
+    at ontimeout (timers.js:498:11)
+    at tryOnTimeout (timers.js:323:5)
+    at Timer.listOnTimeout (timers.js:290:5)
+name: "ClusterClientNoResponseError"
+pid: 8636
+hostname: USER-20180711MK
+

@@ -1,0 +1,74 @@
+2019-09-10 09:03:41,566 INFO 8276 [egg-logrotator] app logger reload: got log-reload message
+2019-09-10 14:16:28,576 WARN 8276 [ClusterClient:Watcher] follower closed, and try to init it again
+2019-09-10 20:09:44,565 WARN 8276 [ClusterClient:Watcher] follower closed, and try to init it again
+2019-09-11 09:29:03,168 INFO 7852 [egg:logger] init all loggers with options: {"dir":"E:\\www\\egg-qcs\\logs\\ele-server","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"ele-server-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2019-09-11 09:29:03,240 INFO 7852 [egg-schedule]: register schedule E:\www\egg-qcs\node_modules\egg-logrotator\app\schedule\clean_log.js
+2019-09-11 09:29:03,240 INFO 7852 [egg-schedule]: register schedule E:\www\egg-qcs\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2019-09-11 09:29:03,241 INFO 7852 [egg-multipart] stream mode enable
+2019-09-11 09:29:04,438 INFO 7852 [egg-static] starting static serve /public/ -> E:\www\egg-qcs\app\public
+2019-09-11 09:29:04,468 INFO 7852 [egg-security] use methodnoallow middleware
+2019-09-11 09:29:04,470 INFO 7852 [egg-security] use noopen middleware
+2019-09-11 09:29:04,473 INFO 7852 [egg-security] use nosniff middleware
+2019-09-11 09:29:04,475 INFO 7852 [egg-security] use xssProtection middleware
+2019-09-11 09:29:04,477 INFO 7852 [egg-security] use xframe middleware
+2019-09-11 09:29:04,478 INFO 7852 [egg-security] use dta middleware
+2019-09-11 09:29:04,478 INFO 7852 [egg-security] compose 6 middlewares into one security middleware
+2019-09-11 09:29:04,546 INFO 7852 [egg:core] dump config after load, 16ms
+2019-09-11 09:29:04,554 INFO 7852 [egg-mongo] Connecting MongoDB...
+2019-09-11 09:29:04,600 INFO 7852 [egg-mongo] Connect success on mongodb://127.0.0.1:27017/ele?useNewUrlParser=true.
+2019-09-11 09:29:04,603 INFO 7852 [egg-watcher:application] watcher start success
+2019-09-11 09:29:04,611 INFO 7852 [egg:core] dump config after ready, 6ms
+2019-09-11 14:34:08,526 WARN 7852 [ClusterClient:Watcher] follower closed, and try to init it again
+2019-09-11 20:54:15,511 WARN 7852 [TCPBase] socket is closed by other side while there were still unhandled data in the socket buffer
+2019-09-11 20:54:15,539 WARN 7852 [ClusterClient:Watcher] follower closed, and try to init it again
+2020-03-27 09:54:09,519 INFO 9772 [egg:logger] init all loggers with options: {"dir":"E:\\www\\egg-qcs\\logs\\ele-server","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"ele-server-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2020-03-27 09:54:09,584 INFO 9772 [egg-schedule]: register schedule E:\www\egg-qcs\node_modules\egg-logrotator\app\schedule\clean_log.js
+2020-03-27 09:54:09,584 INFO 9772 [egg-schedule]: register schedule E:\www\egg-qcs\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2020-03-27 09:54:09,585 INFO 9772 [egg-multipart] stream mode enable
+2020-03-27 09:54:10,902 INFO 9772 [egg-static] starting static serve /public/ -> E:\www\egg-qcs\app\public
+2020-03-27 09:54:10,932 INFO 9772 [egg-security] use methodnoallow middleware
+2020-03-27 09:54:10,936 INFO 9772 [egg-security] use noopen middleware
+2020-03-27 09:54:10,939 INFO 9772 [egg-security] use nosniff middleware
+2020-03-27 09:54:10,942 INFO 9772 [egg-security] use xssProtection middleware
+2020-03-27 09:54:10,944 INFO 9772 [egg-security] use xframe middleware
+2020-03-27 09:54:10,945 INFO 9772 [egg-security] use dta middleware
+2020-03-27 09:54:10,945 INFO 9772 [egg-security] compose 6 middlewares into one security middleware
+2020-03-27 09:54:11,026 INFO 9772 [egg:core] dump config after load, 16ms
+2020-03-27 09:54:11,029 INFO 9772 [egg-mongo] Connecting MongoDB...
+2020-03-27 09:54:11,066 INFO 9772 [egg-watcher:application] watcher start success
+2020-03-27 09:54:11,573 INFO 9772 [egg-mongo] Connect success on mongodb://127.0.0.1:27017/ele?useNewUrlParser=true.
+2020-03-27 09:54:11,595 INFO 9772 [egg:core] dump config after ready, 15ms
+2020-03-27 13:21:52,783 INFO 9164 [egg:logger] init all loggers with options: {"dir":"E:\\www\\egg-qcs\\logs\\ele-server","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"ele-server-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2020-03-27 13:21:52,836 INFO 9164 [egg-schedule]: register schedule E:\www\egg-qcs\node_modules\egg-logrotator\app\schedule\clean_log.js
+2020-03-27 13:21:52,836 INFO 9164 [egg-schedule]: register schedule E:\www\egg-qcs\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2020-03-27 13:21:52,837 INFO 9164 [egg-multipart] stream mode enable
+2020-03-27 13:21:53,504 INFO 9164 [egg-static] starting static serve /public/ -> E:\www\egg-qcs\app\public
+2020-03-27 13:21:53,520 INFO 9164 [egg-security] use methodnoallow middleware
+2020-03-27 13:21:53,521 INFO 9164 [egg-security] use noopen middleware
+2020-03-27 13:21:53,523 INFO 9164 [egg-security] use nosniff middleware
+2020-03-27 13:21:53,523 INFO 9164 [egg-security] use xssProtection middleware
+2020-03-27 13:21:53,524 INFO 9164 [egg-security] use xframe middleware
+2020-03-27 13:21:53,526 INFO 9164 [egg-security] use dta middleware
+2020-03-27 13:21:53,526 INFO 9164 [egg-security] compose 6 middlewares into one security middleware
+2020-03-27 13:21:53,580 INFO 9164 [egg:core] dump config after load, 9ms
+2020-03-27 13:21:53,584 INFO 9164 [egg-mongo] Connecting MongoDB...
+2020-03-27 13:21:53,628 INFO 9164 [egg-mongo] Connect success on mongodb://127.0.0.1:27017/ele?useNewUrlParser=true.
+2020-03-27 13:21:53,632 INFO 9164 [egg-watcher:application] watcher start success
+2020-03-27 13:21:53,643 INFO 9164 [egg:core] dump config after ready, 9ms
+2020-03-27 15:30:37,310 INFO 2100 [egg:logger] init all loggers with options: {"dir":"E:\\www\\egg-qcs\\logs\\ele-server","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"ele-server-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2020-03-27 15:30:37,384 INFO 2100 [egg-schedule]: register schedule E:\www\egg-qcs\node_modules\egg-logrotator\app\schedule\clean_log.js
+2020-03-27 15:30:37,384 INFO 2100 [egg-schedule]: register schedule E:\www\egg-qcs\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2020-03-27 15:30:37,385 INFO 2100 [egg-multipart] stream mode enable
+2020-03-27 15:30:37,548 INFO 2100 [egg-static] starting static serve /public/ -> E:\www\egg-qcs\app\public
+2020-03-27 15:30:37,552 INFO 2100 [egg-security] use methodnoallow middleware
+2020-03-27 15:30:37,553 INFO 2100 [egg-security] use noopen middleware
+2020-03-27 15:30:37,556 INFO 2100 [egg-security] use nosniff middleware
+2020-03-27 15:30:37,557 INFO 2100 [egg-security] use xssProtection middleware
+2020-03-27 15:30:37,557 INFO 2100 [egg-security] use xframe middleware
+2020-03-27 15:30:37,558 INFO 2100 [egg-security] use dta middleware
+2020-03-27 15:30:37,558 INFO 2100 [egg-security] compose 6 middlewares into one security middleware
+2020-03-27 15:30:37,585 INFO 2100 [egg:core] dump config after load, 10ms
+2020-03-27 15:30:37,587 INFO 2100 [egg-mongo] Connecting MongoDB...
+2020-03-27 15:30:37,630 INFO 2100 [egg-mongo] Connect success on mongodb://127.0.0.1:27017/ele?useNewUrlParser=true.
+2020-03-27 15:30:37,634 INFO 2100 [egg-watcher:application] watcher start success
+2020-03-27 15:30:37,651 INFO 2100 [egg:core] dump config after ready, 13ms

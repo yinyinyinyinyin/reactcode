@@ -1,0 +1,83 @@
+屈臣氏登录、获取验证码接口说明：
+
+1.获取验证码接口：
+url:http://127.0.0.1:7001/sms/addSms?phone=15012345678
+请求方式：get
+参数：phone
+返回结果：
+正确结果：
+data{
+code:0，
+createTime:1545363284044，
+success:"验证码已经发送到尾号为7927的手机上，请注意查收"
+}
+错误结果：
+{
+code:1，
+msg:"错误提示内容"
+}
+
+2.查询验证码接口：
+url：http://127.0.0.1:7001/sms/querySms?phone='+phone
+
+请求方式：get
+参数：phone
+返回结果：
+正确结果：
+{
+"code":0,
+"success":{"_id":"5c1c607c8289fb4630cacc09","phone":"15889757927","smsCode":4452,"createTime":1545363580784}
+}
+错误结果：
+{
+code:1，
+msg:"错误提示内容"
+}
+
+3.登录接口
+url：http://127.0.0.1:7001/user/login
+请求方式：post
+
+参数：phone电话号码   
+smsCode 验证码
+
+返回结果：
+正确结果：
+{
+	"code":0,
+	"msg":"用户名登录成功",
+	"data":{
+		"user":{"_id":"5c1a12be4eb25a2d88b3687f","username":"15889757927"},
+		"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVjMWExMmJlNGViMjVhMmQ4OGIzNjg3ZiIsImlhdCI6MTU0NTM2Mzg2OSwiZXhwIjoxNTQ1Mzk5ODY5fQ._82yBGautWZBxnvp7UrZKhXy2Mz5N4m7YnjQh6N4Hyk"
+	}
+}
+
+错误结果：
+{
+code:1，
+msg:"错误提示内容"
+}
+react中需提供一下参数值
+var params = new URLSearchParams();
+params.append('phone',this.state.phone);
+params.append('smsCode',this.state.smsCode);
+
+4.token验证
+url：http://127.0.0.1:7001/center
+
+header 传 token
+请求方式：get
+参数：无
+返回结果：
+成功：
+{
+	decode:{id: "5c1a12be4eb25a2d88b3687f", iat: 1545363869, exp: 1545399869}，
+	code:0,
+	msg:"授权成功"
+}
+失败:
+{
+        code: 1,
+        err:err,
+        msg: '授权失败，请重新登录'
+      }
