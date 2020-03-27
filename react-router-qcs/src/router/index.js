@@ -11,6 +11,8 @@ import Page404 from '../pages/page404';
 import List from '../pages/list';
 import Item from '../pages/item';
 import Cart from '../pages/cart';
+import Center from '../pages/center';
+import Login from '../pages/login';
 //引入 头部组件
 import Header from '../components/common/header';
  //写路由表
@@ -29,6 +31,8 @@ import Header from '../components/common/header';
 					<Route path="/list" component={List} />
 					<Route path="/item" component={Item} />
 					<Route path="/cart" component={Cart} />
+					<Route path="/login" component={Login}/>
+					<Route path="/center" component={Center} />
 					<Route  component={Page404} />
 				</Switch>
 			</div>
