@@ -1,0 +1,32 @@
+一.安装mongoDB
+  --1.1双击安装包，默认配置不需要更改，直接安装
+安装目录是：
+C:\Program Files\MongoDB\Server\4.2
+  --1.2 进入安装目录的bin
+cd  C:\Program Files\MongoDB\Server\4.2\bin
+  --1.3 创建 C:\Program Files\MongoDB\Server\4.2\data\db
+
+
+  --1.4输入 mongod --dbpath C:\Program Files\MongoDB\Server\4.2\data\db
+
+
+  --1.5安装后 在bin目录执行net start MongoDB
+显示请求的服务已经启动（服务启动后不允许关闭）
+
+
+https://jingyan.baidu.com/article/17bd8e5268ec4685aa2bb869.html
+
+二.项目
+  --2.1 找到egg-qcs代码包
+  --2.2 打开cmd ，定位到 代码包
+cd E:\web21\06-react\code\react\reactcode\egg-qcs（注意：你电脑上不一定是这样的目录结构）
+  --2.3 在目录下执行 npm install ，安装依赖
+  --2.4 然后运行 npm run dev  
+如果成功后，会提示在浏览器输入 http://127.0.0.1:7001
+
+测试是否成功：
+浏览器输入以下地址
+http://127.0.0.1:7001/sms/addSms?phone=15012345678
+
+浏览器显示以下内容：
+{"code":0,"createTime":1585302782859,"success":"验证码已经发送到尾号为5678的手机上，请注意查收"}
