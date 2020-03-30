@@ -75,3 +75,13 @@ hostname: USER-20180711MK
 2020-03-27 15:30:35,548 INFO 23932 [egg-watcher] Start watching: "E:\\www\\egg-qcs\\app.js"
 2020-03-27 15:30:35,548 INFO 23932 [egg-watcher:agent] watcher start success
 2020-03-27 15:30:35,568 INFO 23932 [egg:core] dump config after ready, 9ms
+2020-03-27 17:52:30,213 INFO 34584 [egg:logger] init all loggers with options: {"dir":"E:\\web21\\06-react\\code\\react\\reactcode\\egg-qcs\\logs\\ele-server","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"ele-server-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"agent"}
+2020-03-27 17:52:30,339 INFO 34584 [egg:core] dump config after load, 9ms
+2020-03-27 17:52:30,428 INFO 34584 [egg-watcher] Start watching: ["E:\\web21\\06-react\\code\\react\\reactcode\\egg-qcs\\app","E:\\web21\\06-react\\code\\react\\reactcode\\egg-qcs\\config","E:\\web21\\06-react\\code\\react\\reactcode\\egg-qcs\\mocks","E:\\web21\\06-react\\code\\react\\reactcode\\egg-qcs\\mocks_proxy","E:\\web21\\06-react\\code\\react\\reactcode\\egg-qcs\\app.js"]
+2020-03-27 17:52:30,429 INFO 34584 [egg-watcher] Start watching: "E:\\web21\\06-react\\code\\react\\reactcode\\egg-qcs\\app"
+2020-03-27 17:52:30,430 INFO 34584 [egg-watcher] Start watching: "E:\\web21\\06-react\\code\\react\\reactcode\\egg-qcs\\config"
+2020-03-27 17:52:30,430 INFO 34584 [egg-watcher] Start watching: "E:\\web21\\06-react\\code\\react\\reactcode\\egg-qcs\\mocks"
+2020-03-27 17:52:30,430 INFO 34584 [egg-watcher] Start watching: "E:\\web21\\06-react\\code\\react\\reactcode\\egg-qcs\\mocks_proxy"
+2020-03-27 17:52:30,430 INFO 34584 [egg-watcher] Start watching: "E:\\web21\\06-react\\code\\react\\reactcode\\egg-qcs\\app.js"
+2020-03-27 17:52:30,431 INFO 34584 [egg-watcher:agent] watcher start success
+2020-03-27 17:52:30,457 INFO 34584 [egg:core] dump config after ready, 9ms

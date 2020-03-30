@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 //引入路由包
 //withRouter 是react路由封装好的高阶组件
-import {NavLink,withRouter} from 'react-router-dom';
+import {NavLink,withRouter,Link} from 'react-router-dom';
 //引入蚂蚁金服的ui
 import {Row,Col,Input} from 'antd';
 import { UserOutlined,ShoppingCartOutlined,SearchOutlined} from '@ant-design/icons';
@@ -18,13 +18,13 @@ class Header extends Component{
 				<div className="qcs-header">
 					<Row className="qcs-h-search">
 						<Col span={4}>
-							<UserOutlined className="header-font"/>
+							<Link to="/center"><UserOutlined className="header-font"/></Link>
 						</Col>
 						<Col span={16}>
 							 <Input size="middle" className="header-input" placeholder="保湿面膜0.1元" prefix={<SearchOutlined />} />
 						</Col>
 						<Col span={4}>
-							<ShoppingCartOutlined className="header-font"/>
+							<Link to="/cart"><ShoppingCartOutlined className="header-font"/></Link>
 						</Col>
 					</Row>
 					<nav className="qcs-h-nav">

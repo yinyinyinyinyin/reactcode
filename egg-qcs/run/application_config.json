@@ -76,27 +76,27 @@
     "onerror": {
       "errorPageUrl": "",
       "appErrorFilter": null,
-      "templatePath": "E:\\www\\egg-qcs\\node_modules\\egg-onerror\\lib\\onerror_page.mustache"
+      "templatePath": "E:\\web21\\06-react\\code\\react\\reactcode\\egg-qcs\\node_modules\\egg-onerror\\lib\\onerror_page.mustache"
     },
     "i18n": {
       "defaultLocale": "en_US",
       "dirs": [
-        "E:\\www\\egg-qcs\\node_modules\\egg-session\\config\\locales",
-        "E:\\www\\egg-qcs\\node_modules\\egg-security\\config\\locales",
-        "E:\\www\\egg-qcs\\node_modules\\egg-jsonp\\config\\locales",
-        "E:\\www\\egg-qcs\\node_modules\\egg-onerror\\config\\locales",
-        "E:\\www\\egg-qcs\\node_modules\\egg-i18n\\config\\locales",
-        "E:\\www\\egg-qcs\\node_modules\\egg-watcher\\config\\locales",
-        "E:\\www\\egg-qcs\\node_modules\\egg-schedule\\config\\locales",
-        "E:\\www\\egg-qcs\\node_modules\\egg-multipart\\config\\locales",
-        "E:\\www\\egg-qcs\\node_modules\\egg-development\\config\\locales",
-        "E:\\www\\egg-qcs\\node_modules\\egg-logrotator\\config\\locales",
-        "E:\\www\\egg-qcs\\node_modules\\egg-static\\config\\locales",
-        "E:\\www\\egg-qcs\\node_modules\\egg-view\\config\\locales",
-        "E:\\www\\egg-qcs\\node_modules\\egg-cors\\config\\locales",
-        "E:\\www\\egg-qcs\\node_modules\\egg-mongo-native\\config\\locales",
-        "E:\\www\\egg-qcs\\node_modules\\egg\\config\\locales",
-        "E:\\www\\egg-qcs\\config\\locales"
+        "E:\\web21\\06-react\\code\\react\\reactcode\\egg-qcs\\node_modules\\egg-session\\config\\locales",
+        "E:\\web21\\06-react\\code\\react\\reactcode\\egg-qcs\\node_modules\\egg-security\\config\\locales",
+        "E:\\web21\\06-react\\code\\react\\reactcode\\egg-qcs\\node_modules\\egg-jsonp\\config\\locales",
+        "E:\\web21\\06-react\\code\\react\\reactcode\\egg-qcs\\node_modules\\egg-onerror\\config\\locales",
+        "E:\\web21\\06-react\\code\\react\\reactcode\\egg-qcs\\node_modules\\egg-i18n\\config\\locales",
+        "E:\\web21\\06-react\\code\\react\\reactcode\\egg-qcs\\node_modules\\egg-watcher\\config\\locales",
+        "E:\\web21\\06-react\\code\\react\\reactcode\\egg-qcs\\node_modules\\egg-schedule\\config\\locales",
+        "E:\\web21\\06-react\\code\\react\\reactcode\\egg-qcs\\node_modules\\egg-multipart\\config\\locales",
+        "E:\\web21\\06-react\\code\\react\\reactcode\\egg-qcs\\node_modules\\egg-development\\config\\locales",
+        "E:\\web21\\06-react\\code\\react\\reactcode\\egg-qcs\\node_modules\\egg-logrotator\\config\\locales",
+        "E:\\web21\\06-react\\code\\react\\reactcode\\egg-qcs\\node_modules\\egg-static\\config\\locales",
+        "E:\\web21\\06-react\\code\\react\\reactcode\\egg-qcs\\node_modules\\egg-view\\config\\locales",
+        "E:\\web21\\06-react\\code\\react\\reactcode\\egg-qcs\\node_modules\\egg-cors\\config\\locales",
+        "E:\\web21\\06-react\\code\\react\\reactcode\\egg-qcs\\node_modules\\egg-mongo-native\\config\\locales",
+        "E:\\web21\\06-react\\code\\react\\reactcode\\egg-qcs\\node_modules\\egg\\config\\locales",
+        "E:\\web21\\06-react\\code\\react\\reactcode\\egg-qcs\\config\\locales"
       ],
       "queryField": "locale",
       "cookieField": "locale",
@@ -106,14 +106,14 @@
     "watcher": {
       "type": "development",
       "eventSources": {
-        "default": "E:\\www\\egg-qcs\\node_modules\\egg-watcher\\lib\\event-sources\\default",
-        "development": "E:\\www\\egg-qcs\\node_modules\\egg-watcher\\lib\\event-sources\\development"
+        "default": "E:\\web21\\06-react\\code\\react\\reactcode\\egg-qcs\\node_modules\\egg-watcher\\lib\\event-sources\\default",
+        "development": "E:\\web21\\06-react\\code\\react\\reactcode\\egg-qcs\\node_modules\\egg-watcher\\lib\\event-sources\\development"
       }
     },
     "customLogger": {
       "scheduleLogger": {
         "consoleLevel": "NONE",
-        "file": "E:\\www\\egg-qcs\\logs\\ele-server\\egg-schedule.log"
+        "file": "E:\\web21\\06-react\\code\\react\\reactcode\\egg-qcs\\logs\\ele-server\\egg-schedule.log"
       }
     },
     "multipart": {
@@ -150,7 +150,7 @@
     },
     "static": {
       "prefix": "/public/",
-      "dir": "E:\\www\\egg-qcs\\app\\public",
+      "dir": "E:\\web21\\06-react\\code\\react\\reactcode\\egg-qcs\\app\\public",
       "dynamic": true,
       "preload": false,
       "buffer": false,
@@ -158,7 +158,7 @@
       "files": "<LRU>"
     },
     "view": {
-      "root": "E:\\www\\egg-qcs\\app\\view",
+      "root": "E:\\web21\\06-react\\code\\react\\reactcode\\egg-qcs\\app\\view",
       "cache": false,
       "defaultExtension": ".html",
       "defaultViewEngine": "",
@@ -237,9 +237,9 @@
       "author": "laura",
       "license": "MIT"
     },
-    "baseDir": "E:\\www\\egg-qcs",
+    "baseDir": "E:\\web21\\06-react\\code\\react\\reactcode\\egg-qcs",
     "HOME": "C:\\Users\\Administrator",
-    "rundir": "E:\\www\\egg-qcs\\run",
+    "rundir": "E:\\web21\\06-react\\code\\react\\reactcode\\egg-qcs\\run",
     "dump": {
       "ignore": "<Set>"
     },
@@ -270,7 +270,7 @@
       "returnRawBody": true
     },
     "logger": {
-      "dir": "E:\\www\\egg-qcs\\logs\\ele-server",
+      "dir": "E:\\web21\\06-react\\code\\react\\reactcode\\egg-qcs\\logs\\ele-server",
       "encoding": "utf8",
       "env": "local",
       "level": "INFO",
@@ -367,8 +367,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "E:\\www\\egg-qcs\\node_modules\\egg\\config\\plugin.js",
-      "path": "E:\\www\\egg-qcs\\node_modules\\egg-session",
+      "from": "E:\\web21\\06-react\\code\\react\\reactcode\\egg-qcs\\node_modules\\egg\\config\\plugin.js",
+      "path": "E:\\web21\\06-react\\code\\react\\reactcode\\egg-qcs\\node_modules\\egg-session",
       "version": "3.1.0"
     },
     "security": {
@@ -380,14 +380,14 @@
         "session"
       ],
       "env": [],
-      "from": "E:\\www\\egg-qcs\\config\\plugin.js",
+      "from": "E:\\web21\\06-react\\code\\react\\reactcode\\egg-qcs\\config\\plugin.js",
       "domainWhiteList": [
         "http://localhost:8000",
         "http://127.0.0.1:8000",
         "http://127.0.0.1:8020",
         "http://localhost:8020"
       ],
-      "path": "E:\\www\\egg-qcs\\node_modules\\egg-security",
+      "path": "E:\\web21\\06-react\\code\\react\\reactcode\\egg-qcs\\node_modules\\egg-security",
       "version": "2.4.1"
     },
     "jsonp": {
@@ -399,8 +399,8 @@
         "security"
       ],
       "env": [],
-      "from": "E:\\www\\egg-qcs\\node_modules\\egg\\config\\plugin.js",
-      "path": "E:\\www\\egg-qcs\\node_modules\\egg-jsonp",
+      "from": "E:\\web21\\06-react\\code\\react\\reactcode\\egg-qcs\\node_modules\\egg\\config\\plugin.js",
+      "path": "E:\\web21\\06-react\\code\\react\\reactcode\\egg-qcs\\node_modules\\egg-jsonp",
       "version": "2.0.0"
     },
     "onerror": {
@@ -412,8 +412,8 @@
         "jsonp"
       ],
       "env": [],
-      "from": "E:\\www\\egg-qcs\\node_modules\\egg\\config\\plugin.js",
-      "path": "E:\\www\\egg-qcs\\node_modules\\egg-onerror",
+      "from": "E:\\web21\\06-react\\code\\react\\reactcode\\egg-qcs\\node_modules\\egg\\config\\plugin.js",
+      "path": "E:\\web21\\06-react\\code\\react\\reactcode\\egg-qcs\\node_modules\\egg-onerror",
       "version": "2.1.0"
     },
     "i18n": {
@@ -423,8 +423,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "E:\\www\\egg-qcs\\node_modules\\egg\\config\\plugin.js",
-      "path": "E:\\www\\egg-qcs\\node_modules\\egg-i18n",
+      "from": "E:\\web21\\06-react\\code\\react\\reactcode\\egg-qcs\\node_modules\\egg\\config\\plugin.js",
+      "path": "E:\\web21\\06-react\\code\\react\\reactcode\\egg-qcs\\node_modules\\egg-i18n",
       "version": "2.0.0"
     },
     "watcher": {
@@ -434,8 +434,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "E:\\www\\egg-qcs\\node_modules\\egg\\config\\plugin.js",
-      "path": "E:\\www\\egg-qcs\\node_modules\\egg-watcher",
+      "from": "E:\\web21\\06-react\\code\\react\\reactcode\\egg-qcs\\node_modules\\egg\\config\\plugin.js",
+      "path": "E:\\web21\\06-react\\code\\react\\reactcode\\egg-qcs\\node_modules\\egg-watcher",
       "version": "3.1.0"
     },
     "schedule": {
@@ -445,8 +445,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "E:\\www\\egg-qcs\\node_modules\\egg\\config\\plugin.js",
-      "path": "E:\\www\\egg-qcs\\node_modules\\egg-schedule",
+      "from": "E:\\web21\\06-react\\code\\react\\reactcode\\egg-qcs\\node_modules\\egg\\config\\plugin.js",
+      "path": "E:\\web21\\06-react\\code\\react\\reactcode\\egg-qcs\\node_modules\\egg-schedule",
       "version": "3.5.0"
     },
     "multipart": {
@@ -458,8 +458,8 @@
         "schedule"
       ],
       "env": [],
-      "from": "E:\\www\\egg-qcs\\node_modules\\egg\\config\\plugin.js",
-      "path": "E:\\www\\egg-qcs\\node_modules\\egg-multipart",
+      "from": "E:\\web21\\06-react\\code\\react\\reactcode\\egg-qcs\\node_modules\\egg\\config\\plugin.js",
+      "path": "E:\\web21\\06-react\\code\\react\\reactcode\\egg-qcs\\node_modules\\egg-multipart",
       "version": "2.3.0"
     },
     "development": {
@@ -473,8 +473,8 @@
       "env": [
         "local"
       ],
-      "from": "E:\\www\\egg-qcs\\node_modules\\egg\\config\\plugin.js",
-      "path": "E:\\www\\egg-qcs\\node_modules\\egg-development",
+      "from": "E:\\web21\\06-react\\code\\react\\reactcode\\egg-qcs\\node_modules\\egg\\config\\plugin.js",
+      "path": "E:\\web21\\06-react\\code\\react\\reactcode\\egg-qcs\\node_modules\\egg-development",
       "version": "2.4.1"
     },
     "logrotator": {
@@ -486,8 +486,8 @@
       ],
       "optionalDependencies": [],
       "env": [],
-      "from": "E:\\www\\egg-qcs\\node_modules\\egg\\config\\plugin.js",
-      "path": "E:\\www\\egg-qcs\\node_modules\\egg-logrotator",
+      "from": "E:\\web21\\06-react\\code\\react\\reactcode\\egg-qcs\\node_modules\\egg\\config\\plugin.js",
+      "path": "E:\\web21\\06-react\\code\\react\\reactcode\\egg-qcs\\node_modules\\egg-logrotator",
       "version": "3.0.5"
     },
     "static": {
@@ -497,8 +497,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "E:\\www\\egg-qcs\\node_modules\\egg\\config\\plugin.js",
-      "path": "E:\\www\\egg-qcs\\node_modules\\egg-static",
+      "from": "E:\\web21\\06-react\\code\\react\\reactcode\\egg-qcs\\node_modules\\egg\\config\\plugin.js",
+      "path": "E:\\web21\\06-react\\code\\react\\reactcode\\egg-qcs\\node_modules\\egg-static",
       "version": "2.1.1"
     },
     "view": {
@@ -508,8 +508,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "E:\\www\\egg-qcs\\node_modules\\egg\\config\\plugin.js",
-      "path": "E:\\www\\egg-qcs\\node_modules\\egg-view",
+      "from": "E:\\web21\\06-react\\code\\react\\reactcode\\egg-qcs\\node_modules\\egg\\config\\plugin.js",
+      "path": "E:\\web21\\06-react\\code\\react\\reactcode\\egg-qcs\\node_modules\\egg-view",
       "version": "2.1.0"
     },
     "cors": {
@@ -519,8 +519,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "E:\\www\\egg-qcs\\config\\plugin.js",
-      "path": "E:\\www\\egg-qcs\\node_modules\\egg-cors",
+      "from": "E:\\web21\\06-react\\code\\react\\reactcode\\egg-qcs\\config\\plugin.js",
+      "path": "E:\\web21\\06-react\\code\\react\\reactcode\\egg-qcs\\node_modules\\egg-cors",
       "version": "2.1.2"
     },
     "mongo": {
@@ -530,8 +530,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "E:\\www\\egg-qcs\\config\\plugin.js",
-      "path": "E:\\www\\egg-qcs\\node_modules\\egg-mongo-native",
+      "from": "E:\\web21\\06-react\\code\\react\\reactcode\\egg-qcs\\config\\plugin.js",
+      "path": "E:\\web21\\06-react\\code\\react\\reactcode\\egg-qcs\\node_modules\\egg-mongo-native",
       "version": "3.3.0"
     }
   }

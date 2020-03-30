@@ -6,3 +6,5 @@
 2020-03-27 13:21:53,662 INFO 19768 [Timer] E:\www\egg-qcs\node_modules\egg-logrotator\app\schedule\rotate_by_file.js next time will execute at 2020-03-28 00:00:01.000
 2020-03-27 15:30:37,665 INFO 23932 [Timer] E:\www\egg-qcs\node_modules\egg-logrotator\app\schedule\clean_log.js next time will execute at 2020-03-28 00:00:00.000
 2020-03-27 15:30:37,666 INFO 23932 [Timer] E:\www\egg-qcs\node_modules\egg-logrotator\app\schedule\rotate_by_file.js next time will execute at 2020-03-28 00:00:01.000
+2020-03-27 17:52:33,299 INFO 34584 [Timer] E:\web21\06-react\code\react\reactcode\egg-qcs\node_modules\egg-logrotator\app\schedule\clean_log.js next time will execute at 2020-03-28 00:00:00.000
+2020-03-27 17:52:33,301 INFO 34584 [Timer] E:\web21\06-react\code\react\reactcode\egg-qcs\node_modules\egg-logrotator\app\schedule\rotate_by_file.js next time will execute at 2020-03-28 00:00:01.000

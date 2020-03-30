@@ -72,3 +72,20 @@
 2020-03-27 15:30:37,630 INFO 2100 [egg-mongo] Connect success on mongodb://127.0.0.1:27017/ele?useNewUrlParser=true.
 2020-03-27 15:30:37,634 INFO 2100 [egg-watcher:application] watcher start success
 2020-03-27 15:30:37,651 INFO 2100 [egg:core] dump config after ready, 13ms
+2020-03-27 17:52:32,716 INFO 34680 [egg:logger] init all loggers with options: {"dir":"E:\\web21\\06-react\\code\\react\\reactcode\\egg-qcs\\logs\\ele-server","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"ele-server-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2020-03-27 17:52:32,831 INFO 34680 [egg-schedule]: register schedule E:\web21\06-react\code\react\reactcode\egg-qcs\node_modules\egg-logrotator\app\schedule\clean_log.js
+2020-03-27 17:52:32,831 INFO 34680 [egg-schedule]: register schedule E:\web21\06-react\code\react\reactcode\egg-qcs\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2020-03-27 17:52:32,833 INFO 34680 [egg-multipart] stream mode enable
+2020-03-27 17:52:33,104 INFO 34680 [egg-static] starting static serve /public/ -> E:\web21\06-react\code\react\reactcode\egg-qcs\app\public
+2020-03-27 17:52:33,109 INFO 34680 [egg-security] use methodnoallow middleware
+2020-03-27 17:52:33,110 INFO 34680 [egg-security] use noopen middleware
+2020-03-27 17:52:33,112 INFO 34680 [egg-security] use nosniff middleware
+2020-03-27 17:52:33,113 INFO 34680 [egg-security] use xssProtection middleware
+2020-03-27 17:52:33,114 INFO 34680 [egg-security] use xframe middleware
+2020-03-27 17:52:33,117 INFO 34680 [egg-security] use dta middleware
+2020-03-27 17:52:33,117 INFO 34680 [egg-security] compose 6 middlewares into one security middleware
+2020-03-27 17:52:33,179 INFO 34680 [egg:core] dump config after load, 12ms
+2020-03-27 17:52:33,182 INFO 34680 [egg-mongo] Connecting MongoDB...
+2020-03-27 17:52:33,228 INFO 34680 [egg-mongo] Connect success on mongodb://127.0.0.1:27017/ele?useNewUrlParser=true.
+2020-03-27 17:52:33,232 INFO 34680 [egg-watcher:application] watcher start success
+2020-03-27 17:52:33,249 INFO 34680 [egg:core] dump config after ready, 13ms
