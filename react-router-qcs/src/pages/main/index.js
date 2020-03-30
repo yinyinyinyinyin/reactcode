@@ -3,6 +3,11 @@ import {Link} from 'react-router-dom';
 //引入axios
 import axios from 'axios';
 
+
+//引入获取数据的api
+import  {lunboData} from '../../http/api.js';
+
+
 //引入必买部分组件
 import Bimai from '../../components/main/bimai.js';
 import MainSwiper from '../../components/main/mainswiper.js';
@@ -42,12 +47,11 @@ class Main extends Component{
 	
 	//轮播数据
 	getLunboData=()=>{
-		axios.get("aladdin/get_batch_data?codes=[%22%E4%B8%B4%E6%97%B6%22,%22chajian%22,%22newhome_10icon_one_img2%22,%22newhome_10icon_one_img1%22,%22new_Home_4navs_180105_1%22,%22Home_seckill%22]&version=&app_channel=wap&plat=wap&access_token=&device_id=646b29c0-6d74-11ea-9bcd-c53527f03e1c")
-		.then(res=>{
+		lunboData().then(res=>{
 			console.log(res);
-			this.setState({
-				lunboList:res.data.data.chajian.datas
-			})
+				this.setState({
+					lunboList:res.data.data.chajian.datas
+				})
 		})
 	}
 	//秒杀数据

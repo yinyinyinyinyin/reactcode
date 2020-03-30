@@ -1,6 +1,10 @@
 import React,{Component} from 'react';
 import {HomeOutlined,ShoppingCartOutlined} from '@ant-design/icons';
 import {message,Badge} from 'antd';
+
+//引入高级组件
+import withGoBack from '../../components/hoc/withGoBack.js';
+
 import './index.scss';
 class Item extends Component{
 	constructor(){
@@ -9,10 +13,10 @@ class Item extends Component{
 			countTotal : 0//购物车的总数量
 		}
 	}
-	//回到首页
-	goHome=()=>{
-		this.props.history.push('/');
-	}
+	// //回到首页
+	// goHome=()=>{
+	// 	this.props.history.push('/');
+	// }
 	//跳转到购物车页
 	goCart=()=>{
 		this.props.history.push('/cart');
@@ -91,7 +95,7 @@ class Item extends Component{
 		let item = this.props.location.state;
 		return (
 		<div className="item-con">
-			<h3> <span onClick={this.goHome}>{"<"}</span> <span className="list-title">护肤</span></h3>
+			<h3> <span onClick={this.props.goBack}>{"<"}</span> <span className="list-title">护肤</span></h3>
 			<div>
 				<img src={item.over_image_url} alt={item.item_short_name}/>
 			</div>
@@ -106,6 +110,6 @@ class Item extends Component{
 		</div>)
 	}
 }
-export default Item;
+export default withGoBack(Item);
 
 //当添加购物车时,购物车的小图标上有角标变化

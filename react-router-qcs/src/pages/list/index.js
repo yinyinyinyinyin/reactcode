@@ -1,5 +1,7 @@
 import React,{Component} from 'react';
 import axios from 'axios';
+//
+import withGoBack from '../../components/hoc/withGoBack.js';
 import './index.scss';
 class List extends Component{
 	constructor() {
@@ -73,9 +75,9 @@ class List extends Component{
 		
 	}
 	//返回首页的函数
-	goHome=()=>{
-		this.props.history.push('/');
-	}
+	// goHome=()=>{
+	// 	this.props.history.push('/');
+	// }
 	//组件卸载时,将没有停止的setState全部停止
 	componentWillUnmount = () => {
 	    this.setState = (state,callback)=>{
@@ -86,7 +88,7 @@ class List extends Component{
 		let {listArr} = this.state; 
 		return (
 		<div className="list-con">
-			<h3> <span onClick={this.goHome}>{"<"}</span> <span className="list-title">护肤</span></h3>
+			<h3> <span onClick={this.props.goBack}>{"<"}</span> <span className="list-title">护肤</span></h3>
 			<ul >
 				{
 					listArr.map((item,index)=>{
@@ -108,4 +110,6 @@ class List extends Component{
 //list页面是不需要 默认头部的
 //首页的层级问题需要修改
 //报红的bug需要修改
-export default List;
+
+//调用高阶组件
+export default withGoBack(List);
