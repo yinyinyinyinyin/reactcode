@@ -198,4 +198,40 @@ const mapDispatchToProps = dispatch=>bindActionCreators({
 
 export default connect(mapStateToProps,mapDispatchToProps)(Main);
 	```
-	
+## 8.redux 异步操作
+	--8.1 在 src/modules/jishuqi.js 添加新的异步动作
+```
+//延时加一
+export const incrementSync = ()=>{
+	return dispatch=>{
+		return setTimeout(()=>{
+			dispatch({
+				type:'INCREMENT'
+			})
+		},1000)
+	}
+}
+	```
+	--8.2 需要在 src/store.js 中添加异步操作的中间件和日志的中间件
+```
+//引入异步操作的中间件
+import thunk from 'redux-thunk';
+//引入日志的中间件,
+import logger from 'redux-logger';
+
+//注意:logger的中间件需要放在允许中间件的最后一个
+export default createStore(rootReducer,applyMiddleware(routerMiddleware(history),thunk,logger));
+	```
+	--8.3 需要在main页面添加相应的异步事件
+```
+//引入动作
+import {increment,incrementSync} from '../modules/jishuqi';
+
+
+<button onClick={this.props.incrementSync}>延时1秒加一</button>
+
+//将我们的store中的dispatch 和 props中的事件进行映射  ,相当于 set
+const mapDispatchToProps = dispatch=>bindActionCreators({
+	increment,incrementSync
+},dispatch);
+	```
