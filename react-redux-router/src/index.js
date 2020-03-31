@@ -14,10 +14,17 @@ import App from './router';
 //引入store的仓库
 import store ,{history} from './store';
 
+//引入redux的调试工具
+import DevTools from './containers/DevTools.js';
+
+
 ReactDOM.render(
 	<Provider store={store}>
 		<ConnectedRouter history={history}>
-			<App />
+			<div>
+				<App />
+				<DevTools />
+			</div>
 		</ConnectedRouter>
 	</Provider>
   ,

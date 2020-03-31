@@ -235,3 +235,63 @@ const mapDispatchToProps = dispatch=>bindActionCreators({
 	increment,incrementSync
 },dispatch);
 	```
+	
+##9.devtools的配置
+	--9.1 安装依赖 
+	npm install --save-dev redux-devtools redux-devtools-dock-monitor redux-devtools-log-monitor
+	或 
+	cnpm install --save-dev redux-devtools redux-devtools-dock-monitor redux-devtools-log-monitor
+	--9.2 新建 devtools的ui文件  src/containers/DevTools.js
+```
+// 调试工具
+import React from 'react'
+import { createDevTools } from 'redux-devtools'
+import LogMonitor from 'redux-devtools-log-monitor'
+import DockMonitor from 'redux-devtools-dock-monitor'
+
+const DevTools = createDevTools(
+  <DockMonitor toggleVisibilityKey="ctrl-h" changePositionKey="ctrl-q">
+    <LogMonitor theme="tomorrow" preserveScrollTop={false} />
+  </DockMonitor>
+)
+
+export default DevTools
+	```
+	--9.3 修改 src/index.js
+```
+//引入redux的调试工具
+import DevTools from './containers/DevTools.js';
+
+ReactDOM.render(
+	<Provider store={store}>
+		<ConnectedRouter history={history}>
+			<div>
+				<App />
+				<DevTools />
+			</div>
+		</ConnectedRouter>
+	</Provider>
+  ,
+  document.getElementById('root')
+);
+	```
+	--9.4 修改 src/store.js
+```
+import {createStore,applyMiddleware,compose} from 'redux';
+
+//引入devtools
+import DevTools from './containers/DevTools.js';
+
+export default createStore(
+	rootReducer,
+	compose(
+		applyMiddleware(routerMiddleware(history),thunk,logger),
+		DevTools.instrument()
+	)
+);
+	```
+## 10.代码运行时有一些警告，是因为 react的版本和react插件的版本不匹配导致的，
+## 目前的解决办法是重新安装 
+## react@16.4.1 react-dom@16.4.1 插件就可以了
+	
+	

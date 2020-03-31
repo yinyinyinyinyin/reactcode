@@ -5,7 +5,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
 //引入动作
-import {increment,incrementSync} from '../modules/jishuqi';
+import {increment,decrement,incrementSync,decrementSync} from '../modules/jishuqi';
 
 class Main extends Component{
 	render(){
@@ -13,8 +13,9 @@ class Main extends Component{
 		<div>
 			<h3>计数器</h3>
 			<button onClick={this.props.increment}>++</button><br/>
-			<button>--</button>
+			<button onClick={this.props.decrement}>--</button>
 			<button onClick={this.props.incrementSync}>延时1秒加一</button>
+			<button onClick={this.props.decrementSync}>延时1秒减一</button>
 			num的值为:{this.props.count}
 		</div>
 		)
@@ -28,7 +29,7 @@ const mapStateToProps = state =>({
 
 //将我们的store中的dispatch 和 props中的事件进行映射  ,相当于 set
 const mapDispatchToProps = dispatch=>bindActionCreators({
-	increment,incrementSync
+	increment,incrementSync,decrement,decrementSync
 },dispatch);
 
 
