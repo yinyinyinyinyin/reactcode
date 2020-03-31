@@ -111,3 +111,91 @@ export default combineReducers({
 	routerReducer
 })
 ```
+
+## 7.将 ui组件转容器组件
+	--7.1 创建纯函数和动作的js src/modules/jishuqi.js
+```
+//计数器的状态树
+//初始化
+//纯函数
+const initState = {count:15};
+export default (state = initState,action)=>{
+	switch (action.type){
+		case 'INCREMENT'://增加
+			return {count:state.count+1};
+		case 'DECREMENT'://减少
+			return {count:state.count-1};
+		default:
+			return state;
+	}
+}
+
+//动作
+//加一动作
+export const increment = ()=>{
+	return {
+		type:'INCREMENT'
+	}
+}
+//减一的动作
+export const decrement = ()=>{
+	return {
+		type:'DECREMENT'
+	}
+}
+	```
+	
+	--7.2 将 计数器的子树添加到 store中 修改src/modules/index.js
+```
+	//合并状态树
+	import {combineReducers} from 'redux';
+	
+	//引入路由的状态树
+	import {routerReducer} from 'react-router-redux';
+	
+	//引入计数器的子树
+	import jishuqi from './jishuqi.js';
+	export default combineReducers({
+		routerReducer,
+		jishuqi
+	})
+	```
+	--7.3 修改页面，将ui组件转容器组件 src/pages/main.js
+	
+```
+import React ,{Component} from 'react';
+//将ui组件转容器组件
+import {connect} from 'react-redux';
+//绑定动作
+import {bindActionCreators} from 'redux';
+
+//引入动作
+import {increment} from '../modules/jishuqi';
+
+class Main extends Component{
+	render(){
+		return (
+		<div>
+			<h3>计数器</h3>
+			<button onClick={this.props.increment}>++</button><br/>
+			<button>--</button>
+			num的值为:{this.props.count}
+		</div>
+		)
+	}
+}
+
+//将 store中的状态值和props中的值进行映射,等同于vuex中的工具方法,相当于  get
+const mapStateToProps = state =>({
+	count:state.jishuqi.count	
+})
+
+//将我们的store中的dispatch 和 props中的事件进行映射  ,相当于 set
+const mapDispatchToProps = dispatch=>bindActionCreators({
+	increment
+},dispatch);
+
+
+export default connect(mapStateToProps,mapDispatchToProps)(Main);
+	```
+	
