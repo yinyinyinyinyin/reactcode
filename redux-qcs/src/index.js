@@ -5,6 +5,11 @@ import {ConnectedRouter} from 'react-router-redux';
 import store,{history} from './store';
 
 import './index.css';
+import "reset-css";
+import "react-flexible";
+//import "antd/dist/antd.min.css";
+import 'antd/dist/antd.css';
+
 import App from './router';
 import * as serviceWorker from './serviceWorker';
 
