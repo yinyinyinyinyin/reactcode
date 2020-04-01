@@ -5,8 +5,9 @@ import {Provider} from 'react-redux';
 import {ConnectedRouter} from 'react-router-redux';
 import store,{history} from './store';
 
-import 'reset-css';
+
 import 'antd/dist/antd.min.css';
+import 'reset-css';
 import 'react-flexible';
 import './index.css';
 
