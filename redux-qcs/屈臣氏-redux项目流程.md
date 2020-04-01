@@ -489,8 +489,6 @@ const qcsdata = (state={},action)=>{
 			return Object.assign({},state,{swiperList:action.swiperList}) ;
 		case FETCH_REMAI_DATA://热卖
 				return Object.assign({},state,{remaiList:action.remaiList}) ;
-				
-				
 		default:
 			return state;
 	}
@@ -579,75 +577,239 @@ const mapStateToProps = (state) =>{
 export default connect(mapStateToProps)(Main);
 	```
 	
-##7. 必买爆款 传参
-	--7.1 修改了 src/actions/index.js
+##7.今日秒杀流程
+	--7.1 src/contact.js 添加相应的常量
 ```
-export function fetchRemaiList(group_id){
+//秒杀常量
+export const FETCH_MIAOSHA_DATA = "FETCH_MIAOSHA_DATA";
+	```
+	7.2 修改 src/modules/qcsdata.js
+```
+//引入常量
+import {FETCH_SWIPER_DATA,FETCH_REMAI_DATA,FETCH_MIAOSHA_DATA} from '../contact';
+//纯函数
+const qcsdata = (state={},action)=>{
+	switch (action.type) {
+		case FETCH_SWIPER_DATA://轮播
+			return Object.assign({},state,{swiperList:action.swiperList}) ;
+		case FETCH_REMAI_DATA://热卖
+			return Object.assign({},state,{remaiList:action.remaiList}) ;
+		case FETCH_MIAOSHA_DATA://秒杀
+			return Object.assign({},state,{miaoshaList:action.miaoshaList,
+			miaoshaNowTime:action.miaoshaNowTime,
+			miaoshaEndTime:action.miaoshaEndTime
+			}) ;
+		default:
+			return state;
+	}
+}
+export default qcsdata;
+	```
+	
+	--7.3 修改 src/actions/index.js
+```
+//引入常量
+import {FETCH_SWIPER_DATA,FETCH_REMAI_DATA,FETCH_MIAOSHA_DATA} from '../contact';
+//获取秒杀的数据动作
+export function fetchMiaoshaList(){
 	return dispatch=>{
-		return axios.get("item/ws/group_list?current_page=1&page_size=9&group_id="+group_id+"&device_id=646b29c0-6d74-11ea-9bcd-c53527f03e1c").then(res=>{
+		return axios.get("activity/specials/info?count=8&code=Home_flashSale__Top_Img&stock_code=&device_id=646b29c0-6d74-11ea-9bcd-c53527f03e1c").then(res=>{
 			console.log(res);
 			//将数据发送给纯函数
 			dispatch({
-				type:FETCH_REMAI_DATA,
-				remaiList:res.data.data.item_list
+				type:FETCH_MIAOSHA_DATA,
+				miaoshaList:res.data.data.specials_item_v_o_s,
+				miaoshaNowTime:res.data.data.now,
+				miaoshaEndTime:res.data.data.specials_time_ranges[0].end
 			})
-			
 		})
 	}
 } 
-
 	```
-	--7.2 修改了 src/pages/main/index.js
+	--7.4 添加组件
+src/components/main/jinrimiaosha.js
 ```
-constructor() {
+import React,{Component} from 'react';
+import './jinrimiaosha.scss';
+class JinRiMiaoSha extends Component{
+	constructor() {
 	    super();
 		this.state = {
-			bimaiNav:[
-				{"id":1,"group_id":28797,"name":"畅销尖货",activeType:true},
-				{"id":2,"group_id":28798,"name":"春夏必备",activeType:false},
-				{"id":3,"group_id":28799,"name":"低价精选",activeType:false},
-				{"id":4,"group_id":28800,"name":"当季热卖",activeType:false}
-			],
+			daojishi:['00','00','00'] //表示倒计时的时分秒
 		}
 	}
 	componentDidMount(){
-		//调用store中的获取轮播数据动作
-		this.props.dispatch(fetchSwiperList());
-		//调用store中的获取热卖数据动作
-		this.props.dispatch(fetchRemaiList(28797));
+		let miaoshaTime = this.props.endTime-this.props.nowTime;//秒杀的时间戳
+		//console.log(miaoshaTime);
+		setInterval(()=>{
+			miaoshaTime -= 1000;
+			//将事件戳转日期时间
+			let time = this.formatTime(new Date(miaoshaTime));
+			//console.log(time);
+			//将time 的时间值保存到 state
+			this.setState({
+				daojishi:time
+			})
+		},1000);
+		
 	}
-	//获取必买爆款的数据
-	getBiMaiData=(group_id)=>{
-		console.log(group_id);
-		let bimaiNav = this.state.bimaiNav;
-		//需要修改nav的activeType
-		for(var i = 0;i<bimaiNav.length;i++){
-			bimaiNav[i].activeType = false;
-			if(bimaiNav[i].group_id === group_id){
-				bimaiNav[i].activeType = true;
+	//只要看到:Can't perform a React state update on an unmounted component 就添加下面的代码
+	//将未完成的setState停止掉
+	componentWillUnmount = () => {
+	    this.setState = (state,callback)=>{
+	      return;
+	    };
+	}
+	 
+	//将事件戳转日期时间
+	formatTime=(date)=>{
+		let time = date/1000;
+		const s = Math.floor(time%60);
+		const m = Math.floor(time/60%60);
+		const h = Math.floor(time/60/60%24);
+		return [h,m,s].map(this.addZero);
+	}
+	//时间如果是一位数,请在前面加零
+	addZero =(n)=>{
+		if(n>9){
+			return n;
+		}else{
+			return "0"+n;
+		}
+	}
+	
+	render(){
+		//console.log(this.props.nowTime);
+		//console.log(this.props.endTime);
+		let {miaoshaList} = this.props;
+		let {daojishi} = this.state;
+		return (
+			<div className="jinri-con">
+				<div className="miaosha">
+					今日秒杀
+					<span className="djs">
+						<span>{daojishi[0]}</span>:
+						<span>{daojishi[1]}</span>:
+						<span>{daojishi[2]}</span>
+					</span>
+					<span className="more">更多好货> </span>
+				</div>
+				<div className="miaosha1">
+				{
+					miaoshaList.map((item,index)=>{
+						return (
+							<div className="neir" key={index}>
+								<div className="biqiang">必抢</div>
+								<img src={item.image_url} alt={item.item_id}/>
+								<div className="name">{item.item_short_name}</div>
+								<div>money</div>
+							</div>
+						)
+					})
+				}	
+				</div>
+			</div>
+		)
+	}
+}
+
+export default JinRiMiaoSha;
+```
+
+src/components/main/jinrimiaosha.scss
+```
+.jinri-con{
+	width: 100%;
+	background: url(https://image.watsons.com.cn//upload/b875a675.png);
+	height:5.493333rem;
+	background-size: cover;
+	
+	.miaosha{
+		height:1.333333rem;
+		line-height: 1.333333rem;
+		font-size:16px;
+		font-weight: bold;
+		padding-left:0.533333rem;
+		.djs{
+			padding-left:0.533333rem;
+			display: inline-block;
+			margin-bottom:0.186666rem;
+			span{
+				font-size:12px;
+				background: #000;
+				color:#fff;
+				padding:0.053333rem;
 			}
 		}
-		//将最新的bimaiNav保存到state
-		this.setState({
-			bimaiNav:bimaiNav
-		})
-		//调用store中的获取热卖数据动作
-		this.props.dispatch(fetchRemaiList(group_id));
+		.more{padding-left:2.4rem;}
 	}
-	```
-html
-```
-<div className="main-img"><img alt="必买爆款" src="https://image.watsons.com.cn//upload/998a3a0c.jpg"/></div>
-			<ul className="bimai-nav">
-			{
-				bimaiNav.map(item=>(<li key={item.id} 
-				className={item.activeType?"active":""}  
-				onClick={this.getBiMaiData.bind(this,item.group_id)}>
-				{item.name}
-				
-				</li>))
+	.miaosha1{
+		width:9.173333rem;
+		height:3.733333rem;
+		margin:0.266666rem 0.4rem;
+		
+		display:flex;
+		overflow-x: scroll;
+		border-radius: 5px;
+		.neir{
+			margin-left:0.133333rem;
+			margin-right:0.133333rem;
+			width: 2.533333rem;
+			bordeR:1px solid #ededed;
+			background: #fff;
+			border-radius: 5px;
+			position: relative;
+			img{
+				height:2.48rem;
+				width:2.48rem;
+				border-radius: 5px;
 			}
-			</ul>
+			.name{
+				border-top:1px solid #ededed;
+				padding:5px;
+				overflow: hidden;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+			}
+			.biqiang{
+				position: absolute;
+				    top: 2rem;
+				    left: 0px;
+				    background: orangered;
+				    color: #fff;
+				    padding: 3px;
+				    border-radius: 2px;
+			}
+		}
+	}
+	/*chrome浏览器下去除横向滚动条*/
+	.miaosha1::-webkit-scrollbar{
+		display:none;
+	}
+}
+//样式需要将 px转rem
+	```
+	
+	--7.5 修改 src/pages/main/index.js
+```
+//引入动作
+import {fetchSwiperList,fetchRemaiList,fetchMiaoshaList} from '../../actions/index.js';
+
+import JinRiMiaoSha from '../../components/main/jinrimiaosha';
+
+	//调用store中的获取秒杀数据动作
+		this.props.dispatch(fetchMiaoshaList());
+	```
+在render中添加
+```
+const {miaoshaList,miaoshaNowTime,miaoshaEndTime,swiperList,remaiList} = this.props;
+```
+在return中的<div className="main-con"> 标签中添加
+```
+{/*今日秒杀*/}
+				{
+					miaoshaEndTime === '' && miaoshaNowTime===''?"":<JinRiMiaoSha endTime={miaoshaEndTime} nowTime={miaoshaNowTime} miaoshaList={miaoshaList} />
+				}
 	```
 	
 	
