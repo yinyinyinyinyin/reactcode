@@ -489,6 +489,8 @@ const qcsdata = (state={},action)=>{
 			return Object.assign({},state,{swiperList:action.swiperList}) ;
 		case FETCH_REMAI_DATA://热卖
 				return Object.assign({},state,{remaiList:action.remaiList}) ;
+				
+				
 		default:
 			return state;
 	}
@@ -577,6 +579,76 @@ const mapStateToProps = (state) =>{
 export default connect(mapStateToProps)(Main);
 	```
 	
+##7. 必买爆款 传参
+	--7.1 修改了 src/actions/index.js
+```
+export function fetchRemaiList(group_id){
+	return dispatch=>{
+		return axios.get("item/ws/group_list?current_page=1&page_size=9&group_id="+group_id+"&device_id=646b29c0-6d74-11ea-9bcd-c53527f03e1c").then(res=>{
+			console.log(res);
+			//将数据发送给纯函数
+			dispatch({
+				type:FETCH_REMAI_DATA,
+				remaiList:res.data.data.item_list
+			})
+			
+		})
+	}
+} 
+
+	```
+	--7.2 修改了 src/pages/main/index.js
+```
+constructor() {
+	    super();
+		this.state = {
+			bimaiNav:[
+				{"id":1,"group_id":28797,"name":"畅销尖货",activeType:true},
+				{"id":2,"group_id":28798,"name":"春夏必备",activeType:false},
+				{"id":3,"group_id":28799,"name":"低价精选",activeType:false},
+				{"id":4,"group_id":28800,"name":"当季热卖",activeType:false}
+			],
+		}
+	}
+	componentDidMount(){
+		//调用store中的获取轮播数据动作
+		this.props.dispatch(fetchSwiperList());
+		//调用store中的获取热卖数据动作
+		this.props.dispatch(fetchRemaiList(28797));
+	}
+	//获取必买爆款的数据
+	getBiMaiData=(group_id)=>{
+		console.log(group_id);
+		let bimaiNav = this.state.bimaiNav;
+		//需要修改nav的activeType
+		for(var i = 0;i<bimaiNav.length;i++){
+			bimaiNav[i].activeType = false;
+			if(bimaiNav[i].group_id === group_id){
+				bimaiNav[i].activeType = true;
+			}
+		}
+		//将最新的bimaiNav保存到state
+		this.setState({
+			bimaiNav:bimaiNav
+		})
+		//调用store中的获取热卖数据动作
+		this.props.dispatch(fetchRemaiList(group_id));
+	}
+	```
+html
+```
+<div className="main-img"><img alt="必买爆款" src="https://image.watsons.com.cn//upload/998a3a0c.jpg"/></div>
+			<ul className="bimai-nav">
+			{
+				bimaiNav.map(item=>(<li key={item.id} 
+				className={item.activeType?"active":""}  
+				onClick={this.getBiMaiData.bind(this,item.group_id)}>
+				{item.name}
+				
+				</li>))
+			}
+			</ul>
+	```
 	
 	
 	
