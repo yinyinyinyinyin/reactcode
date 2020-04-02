@@ -1,0 +1,30 @@
+1.前端开发者必备思维
+http://mp.weixin.qq.com/s?__biz=MzAxODE2MjM1MA==&mid=2651553881&idx=1&sn=93c344016fc3ec9cc44637d8471505a0&chksm=80255798b752de8ee74cb67d122afbe7262a5b58d93ef4f219bc9ae2052665e47eef6b9812c5&mpshare=1&scene=1&srcid=0328Bw7zMT41WRkIMitfxgGL#rd
+2.ajax原理，跨域
+3.vue双向数据绑定原理
+4.做公众号用什么框架
+https://m.vvfeng.com/article/22386.htm
+5.jq绑定方法，操作元素样式
+6.小程序是否可以用promise
+微信开发者工具更新版本后, 移除了开发者工具对 ES6 中 Promise 特性原生的支持, 理由是因为实体机器是不支持 Promise 的, 所以我们需要引入第三方的 Promise 库，
+在这里我引入的是 Bluebird 库, 可以到Bluebird官网 下载需要的文件，也可以通过本地下载
+Bluebrid 提供了两种已经构建好的完整的 Promise 库文件, 未经压缩的 bluebird.js 和已压缩的 bluebird.min.js 文件, 当点击这两个文件的时候发现并没有下载, 只是显示出了源码, 这个时候可以全选复制, 然后在微信小程序的工程项目里新建一个js文件, 将其粘贴进去
+以上我在微信小程序工程目录下的 utils文件夹里新建了一个 promise.js 文件, 然后在 http.js 的目录下用 ES6 的语法 import Promise from './promise.js' 完成对 bluebird 的引入, 这样就直接可以通过 new Promise()使用了, 体验跟 ES6 原生一样.
+7.vue 兄弟传参
+8.ts语法
+9.object.create 和构造函数的区别
+10.nodejs里面有些什么
+11.vue的原理
+12.es6语法的掌握
+13.vue的声明周期，具体每个阶段发生了什么
+14.箭头函数的优点
+15.<meta>
+16.<!Doctype>的作用
+17.angular2路由的配置
+18.重定向的状态码
+19.http协议
+20.闭包及使用场景
+21.h5,css3动画
+22.冒泡的产生
+23.js的缓存的状态码
+24.安全性问题的解决  ：防攻击   、防注入

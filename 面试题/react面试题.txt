@@ -1,0 +1,100 @@
+   1、 react生命周期函数
+
+这个问题要考察的是组件的生命周期
+
+一、初始化阶段：
+
+getDefaultProps:获取实例的默认属性
+
+getInitialState:获取每个实例的初始化状态
+
+componentWillMount：组件即将被装载、渲染到页面上
+
+render:组件在这里生成虚拟的DOM节点
+
+componentDidMount:组件真正在被装载之后
+
+二、运行中状态：
+
+componentWillReceiveProps:组件将要接收到属性的时候调用
+
+shouldComponentUpdate:组件接受到新属性或者新状态的时候（可以返回false，接收数据后不更新，阻止render调用，后面的函数不会被继续执行了）
+
+componentWillUpdate:组件即将更新不能修改属性和状态
+
+render:组件重新描绘
+
+componentDidUpdate:组件已经更新
+
+三、销毁阶段：
+
+componentWillUnmount:组件即将销毁
+
+
+
+  2、  React 中的keys是什么，为什么它们很重要？
+keys是什么帮助 React 跟踪哪些项目已更改、添加或从列表中删除。
+
+
+  3、  在 React 当中 Element 和 Component 有何区别？
+
+  ***解释一：
+简单地说，一个 React element 描述了你想在屏幕上看到什么。换个说法就是，一个 React element 是一些 UI 的对象表示。
+
+一个 React Component 是一个函数或一个类，它可以接受输入并返回一个 React element t（通常是通过 JSX ，它被转化成一个 createElement 调用）。
+
+  ***解释二：
+ReactElement是描述屏幕上所见的内容的数据结构,是对于UI的对象的表述.典型的ReactElement就是利用JSX构建的声明式代码片段,然后被转化为createElement的调用组合.
+
+
+ReactComponent则是可以接收参数输入并且返回某个ReactElement的函数或者类.。
+
+ 
+  4、 为什么虚拟dom会提高性能?
+
+虚拟dom相当于在js和真实dom中间加了一个缓存，利用dom diff算法避免了没有必要的dom操作，从而提高性能。
+
+具体实现步骤如下：
+
+用 JavaScript 对象结构表示 DOM 树的结构；然后用这个树构建一个真正的 DOM 树，插到文档当中
+
+当状态变更的时候，重新构造一棵新的对象树。然后用新的树和旧的树进行比较，记录两棵树差异
+
+把2所记录的差异应用到步骤1所构建的真正的DOM树上，视图就更新了。
+
+
+  5、 react性能优化方案
+
+（1）重写shouldComponentUpdate来避免不必要的dom操作。
+
+（2）使用 production 版本的react.js。
+
+（3）使用key来帮助React识别列表中所有子组件的最小变化。
+把树形结构按照层级分解，只比较同级元素。
+
+  6、diff算法?
+
+给列表结构的每个单元添加唯一的key属性，方便比较。
+
+React 只会匹配相同 class 的 component（这里面的class指的是组件的名字）
+
+合并操作，调用 component 的 setState 方法的时候, React 将其标记为 dirty.到每一个事件循环结束, React 检查所有标记 dirty 的 component 重新绘制.
+
+选择性子树渲染。开发人员可以重写shouldComponentUpdate提高diff的性能。
+
+
+  7、 React 中的keys是什么，为什么它们很重要？
+keys是什么帮助 React 跟踪哪些项目已更改、添加或从列表中删除。
+  ***___解释一：
+（每个 keys 在兄弟元素之间是独一无二的。我们已经谈过几次关于和解（reconciliation）的过程，而且这个和解过程（reconciliation）中的一部分正在执行一个新的元素树与最前一个的差异。keys 使处理列表时更加高效，因为 React 可以使用子元素上的 keys 快速知道元素是新的还是在比较树时才被移动。
+
+而且 keys 不仅使这个过程更有效率，而且没有 keys ，React 不知道哪个本地状态对应于移动中的哪个项目。所以当你 map 的时候，不要忽略了 keys 。）
+  ***___解释二：
+（在开发过程中,我们需要保证某个元素的key 在其同级元素中具有唯一性,在ReactDiff算法中React会借助元素的Key值来判断该元素是新创建的还是被移动而来的元素,React会保存这个辅助状态,从而减少不必要的元素渲染.此外,React还需要借助Key值来判断元素与本地状态的关联干洗,因此我们在开发中不可忽视Key值的使用.）
+
+
+https://as-vip.missfresh.cn/v2/product/home/index?device_id=9f0d0ec0-bbe8-11e8-ba64-1512bd2c4e93&env=web&platform=web&uuid=9f0d0ec0-bbe8-11e8-ba64-1512bd2c4e93&access_token=null&version=.0.2&fromSource=zhuye&screen_height=320&screen_width=568
+
+
+
+

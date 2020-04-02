@@ -1,0 +1,77 @@
+ 1.html,css  :用网页写一个品字
+
+2.mvc和mvvm的区别
+https://www.cnblogs.com/guwei4037/p/5591183.html
+
+3.移动端点击事件有什么不同
+https://www.cnblogs.com/luoguixin/p/6370201.html
+
+4.有没有想过在移动端显示1px的线
+https://www.cnblogs.com/lunarorbitx/p/5287309.html
+
+5.750px的屏幕显示28px字体，css中需要写多少px
+答：750的设计稿，表示以iphone6为基础进行的设计，28px的字体在网页里显示14px。
+6.支付流程是怎么实现的
+https://www.cnblogs.com/xuzhengzong/p/7840124.html
+
+7.怎么实现移动端布局
+https://www.cnblogs.com/jide/p/7051006.html
+
+8.vue与小程序的区别
+https://www.cnblogs.com/apgy/p/8117723.html
+
+9.rem是什么，怎么用
+相对的长度单位，相对于根节点
+
+10.如何解析json数据
+解析json数据有两种方式 json.parse  eval
+区别：json.parse对数据进行了验证，格式更严格，速度比eval快
+eval 在解析数据时消耗性能比较大，但可以解析不严格的json数据，这一点json.parse做不到
+
+11.媒体查询是什么
+https://www.cnblogs.com/Olivialoveme/p/7162701.html
+
+12.小程序如何渲染后台数据
+微信小程序的api中提供了网络交互的api，我们只要调用即可和后端进行数据交互，该api为wx.request.，可以对wx.request进行封装，将获取的数据保存到data中 然后在页面渲染数据；
+
+13.闭包是什么，经常使用在什么情景下
+
+闭包通常用来创建内部变量，使得这些变量不能被外部随意修改，同时又可以通过指定的函数接口来操作。
+闭包本质还是函数，只不过这个函数绑定了上下文环境（函数内部引用的所有变量）
+闭包的鲜明特点：
+闭包内变量无法释放，无法被外部直接访问，闭包可以被延迟执行。所以闭包可以做一些事情：
+管理私有变量和私有方法，将对变量（状态）的变化封装在安全的环境中
+将代码封装成一个闭包形式，等待时机成熟时在使用，
+注意，由于闭包内的部分资源无法自动释放，容易造成内存泄漏
+
+利用闭包可以给对象设置私有属性，并利用特权方法访问私有属性
+var Foo = function(){
+      
+var name = 'fooname';
+     
+var age = 12;
+      
+this.getName = function(){
+          return name;
+      };
+      
+this.getAge = function(){
+          return age;
+      };
+  
+};
+  
+var foo = new Foo();
+
+  
+foo.name;        //  => undefined
+  
+foo.age;         //  => undefined
+  
+foo.getName();   //  => 'fooname'
+  
+foo.getAge();    //  => 12
+
+
+
+https://www.zhihu.com/question/19554716
