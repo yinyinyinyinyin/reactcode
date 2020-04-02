@@ -1,4 +1,6 @@
-.swiper-container .swiper-wrapper .swiper-slide img{width:100%;}
+.swiper-container  .swiper-wrapper .swiper-slide img{
+	width:100%;
+}
  .swiper-button-next{
 	background: rgba(0,0,0,0.5) url("https://image.watsons.com.cn//upload/efbab720.png")
 	50% 50% no-repeat;

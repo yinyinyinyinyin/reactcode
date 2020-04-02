@@ -1,7 +1,7 @@
 ##1. 先安装依赖
-cnpm install --save react-redux@5.1.1 react-router-dom@4.3.1 react-router-redux@5.0.0-alpha.8 redux redux-logger redux-saga axios http-proxy-middleware@0.20.0 
+cnpm install --save react-redux@5.1.1 react-router-dom@4.3.1 react-router-redux@5.0.0-alpha.8 redux redux-logger redux-saga axios http-proxy-middleware@0.20.0 swiper@3.4.2 
 或
-npm install --save react-redux@5.1.1 react-router-dom@4.3.1 react-router-redux@5.0.0-alpha.8 redux redux-logger redux-saga axios http-proxy-middleware@0.20.0 
+npm install --save react-redux@5.1.1 react-router-dom@4.3.1 react-router-redux@5.0.0-alpha.8 redux redux-logger redux-saga axios http-proxy-middleware@0.20.0 swiper@3.4.2
 
 ##2.创建页面
 src/pages/main/index.js
@@ -376,11 +376,15 @@ function * getSwiperList(){
 		console.log("请求失败,错误是:",e.message);
 	}
 }
+//检测是否存在获取数据的动作
+export function * watchGetData(){
+	yield takeEvery('FETCH_SWIPER_DATA',getSwiperList);
+}
+
 export default function * rootSaga(){
-	yield take('SWIPER_DATA');
-	yield fork(getSwiperList);
 	yield all([
 		watchCountAsync(),
+		watchGetData()
 	])
 }
 	```
@@ -491,6 +495,94 @@ const mapDispatchToProps = dispatch=>{
 		getSwiperList:()=>{
 			dispatch({
 				type:'SWIPER_DATA'
+			})
+		}
+	}
+}
+export default connect(mapStateToProps,mapDispatchToProps)(About);
+	```
+	
+##13 添加第二个轮播图
+	--13.1 修改了 src/saga.js
+```
+//获取轮播插件数据
+function * getSwiperChajianList(){
+	try{
+		const res = yield axios.get('aladdin/get_batch_data?codes=["临时","chajian","newhome_10icon_one_img2","newhome_10icon_one_img1","new_Home_4navs_180105_1","Home_seckill"]&version=&app_channel=wap&plat=wap&access_token=&device_id=646b29c0-6d74-11ea-9bcd-c53527f03e1c');
+		//将获取的数据发送给纯函数
+		yield put({
+			type:'SWIPER_CHAJIAN_DATA',
+			swiperChajianList:res.data.data.chajian.datas
+		})	
+	}catch(e){
+		console.log("获取数据失败",e.message);
+	}
+}
+//检测是否存在获取数据的动作
+export function * watchGetData(){
+	yield takeEvery('FETCH_SWIPER_DATA',getSwiperList);
+	yield takeEvery('FETCH_SWIPER_CHAJIAN_DATA',getSwiperChajianList);
+}
+	```
+	
+	--13.2 修改 src/modules/qcsdata.js
+```
+//获取数据的纯函数
+const qcsdata = (state={},action)=>{
+	switch (action.type) {
+		case 'SWIPER_DATA':
+			return Object.assign({},state,{swiperList:action.swiperList});
+		case 'SWIPER_CHAJIAN_DATA':
+			return Object.assign({},state,{swiperChajianList:action.swiperChajianList});
+		default:
+			return state;
+	}
+}
+export default qcsdata;
+	```
+	--13.3 修改 src/pages/about/index.js
+```
+import React ,{Component} from 'react';
+import {connect} from 'react-redux';
+//引入组件
+import MainSwiper from '../../components/main/mainswiper';
+class About extends Component{
+	componentDidMount(){
+		this.props.getSwiperList();
+		this.props.getSwiperChajianList();
+	}
+	render(){
+		const {swiperList} = this.props;
+		return (
+			<div>关于我们
+				<h3>第一个轮播图</h3>	
+				{
+					swiperList === []?"":<MainSwiper lunboList={this.props.swiperList} />
+				}	
+				<h3>第二个轮播图</h3>
+				{
+					swiperList === []?"":<MainSwiper lunboList={this.props.swiperChajianList} />
+				}	
+			</div>
+		)
+	}
+}
+
+const mapStateToProps = state=>{
+	const swiperList = state.qcsdata.swiperList || [];
+	const swiperChajianList = state.qcsdata.swiperChajianList || [];
+	return {swiperList,swiperChajianList}
+}
+const mapDispatchToProps = dispatch=>{
+	return {
+		getSwiperList:()=>{
+			dispatch({
+				type:'FETCH_SWIPER_DATA'
+			})
+		},
+		getSwiperChajianList:()=>{
+			dispatch({
+				type:'FETCH_SWIPER_CHAJIAN_DATA'
 			})
 		}
 	}

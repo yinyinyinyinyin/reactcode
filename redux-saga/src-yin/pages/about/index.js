@@ -1,6 +1,7 @@
 import React ,{Component} from 'react';
+//ui组件转容器组件
 import {connect} from 'react-redux';
-//引入组件
+//引入轮播的组件
 import MainSwiper from '../../components/main/mainswiper';
 class About extends Component{
 	componentDidMount(){
@@ -8,27 +9,25 @@ class About extends Component{
 		this.props.getSwiperChajianList();
 	}
 	render(){
-		const {swiperList} = this.props;
 		return (
-			<div>关于我们
-				<h3>第一个轮播图</h3>	
-				{
-					swiperList === []?"":<MainSwiper lunboList={this.props.swiperList} />
-				}	
-				<h3>第二个轮播图</h3>
-				{
-					swiperList === []?"":<MainSwiper lunboList={this.props.swiperChajianList} />
-				}	
+			<div>
+			<button >调用数据</button>
+			
+			<h3>轮播图</h3>
+			<MainSwiper  lunboList={this.props.swiperList} />
+			<h3>轮播图2</h3>
+			
+			<MainSwiper  lunboList={this.props.swiperChajianList} />
 			</div>
 		)
 	}
 }
-
 const mapStateToProps = state=>{
 	const swiperList = state.qcsdata.swiperList || [];
 	const swiperChajianList = state.qcsdata.swiperChajianList || [];
 	return {swiperList,swiperChajianList}
 }
+//发送动作
 const mapDispatchToProps = dispatch=>{
 	return {
 		getSwiperList:()=>{
@@ -40,7 +39,7 @@ const mapDispatchToProps = dispatch=>{
 			dispatch({
 				type:'FETCH_SWIPER_CHAJIAN_DATA'
 			})
-		}
+		},
 	}
 }
 export default connect(mapStateToProps,mapDispatchToProps)(About);

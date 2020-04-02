@@ -10,17 +10,20 @@ import 'swiper/dist/css/swiper.min.css';
 import './mainswiper.css';
 class MainSwiper extends Component{
 	componentDidMount(){
-		new Swiper('.swiper-container',{
-			loop:true,
-			autoplay:1000,
-			observer:true,//数据是异步的
-			observeParents:true,
-			// 如果需要分页器
-			pagination: '.swiper-pagination',
-			// 如果需要前进后退按钮
-			nextButton: '.swiper-button-next',
-			prevButton: '.swiper-button-prev',
-		})
+		setTimeout(()=>{
+			new Swiper('.swiper-container',{
+				loop:true,
+				autoplay:1000,
+				observer:true,//数据是异步的
+				observeParents:true,
+				// 如果需要分页器
+				pagination: '.swiper-pagination',
+				// 如果需要前进后退按钮
+				nextButton: '.swiper-button-next',
+				prevButton: '.swiper-button-prev',
+			})
+		},1000);
+		
 	}
 	render(){
 		let {lunboList} = this.props;
