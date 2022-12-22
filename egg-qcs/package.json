@@ -10,7 +10,7 @@
     "egg-mongodb": "^1.1.1",
     "egg-scripts": "^2.5.0",
     "egg-session": "^3.1.0",
-    "jsonwebtoken": "^8.4.0",
+    "jsonwebtoken": "^9.0.0",
     "shelljs": "^0.8.3"
   },
   "devDependencies": {
